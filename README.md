@@ -77,9 +77,9 @@ object MyModResources {
 
     init {
         if (MyModSettings.myEnchantmentIsTreasure) {
-            PACK.addTag(EnchantmentTags.TREASURE) { add(DEEP_POCKETS) }
+            PACK.addTag(EnchantmentTags.TREASURE) { add(MY_ENCHANTMENT) }
         } else {
-            PACK.addTag(EnchantmentTags.NON_TREASURE) { add(DEEP_POCKETS) }
+            PACK.addTag(EnchantmentTags.NON_TREASURE) { add(MY_ENCHANTMENT) }
         }
 
         if (MyModSettings.enableRecipe) {
