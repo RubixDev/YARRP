@@ -3,7 +3,7 @@ package de.rubixdev.yarrp.api
 import com.google.gson.Gson
 import com.mojang.serialization.Codec
 import com.mojang.serialization.JsonOps
-import de.rubixdev.yarrp.ModConstants.LOGGER
+import de.rubixdev.yarrp.LOGGER
 import de.rubixdev.yarrp.impl.DirectoryEntry
 import de.rubixdev.yarrp.impl.PackEntry
 import de.rubixdev.yarrp.impl.Resource
