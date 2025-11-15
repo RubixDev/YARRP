@@ -8,8 +8,7 @@
     "HolderSetCodecMixin",
     "MultiPackResourceManagerMixin"
   ],
-  "client": [
-  ],
+  "client": [],
   "injectors": {
     "defaultRequire": 1
   }

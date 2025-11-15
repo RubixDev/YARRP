@@ -81,7 +81,10 @@ spotless {
         eclipse("4.37").configFile("eclipse-prefs.xml")
         formatAnnotations()
     }
-    // TODO: json formatting
+    json {
+        target("**/*.json")
+        gson().indentWithSpaces(2)
+    }
 }
 
 tasks.register("buildAndGather") {
