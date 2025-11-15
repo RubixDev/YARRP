@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "de.rubixdev.yarrp.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "plugin": "de.rubixdev.yarrp.MixinPlugin",
+  "mixins": [
+    "HolderSetCodecMixin",
+    "MultiPackResourceManagerMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

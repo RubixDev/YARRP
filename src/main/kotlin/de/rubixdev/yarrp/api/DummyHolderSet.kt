@@ -1,0 +1,22 @@
+package de.rubixdev.yarrp.api
+
+import com.mojang.datafixers.util.Either
+import java.util.Optional
+import java.util.stream.Stream
+import net.minecraft.core.Holder
+import net.minecraft.core.HolderOwner
+import net.minecraft.core.HolderSet
+import net.minecraft.tags.TagKey
+import net.minecraft.util.RandomSource
+
+class DummyHolderSet<T>(val tag: TagKey<T>) : HolderSet<T> {
+    override fun stream(): Stream<Holder<T>> = Stream.empty()
+    override fun size(): Int = 0
+    override fun unwrap(): Either<TagKey<T>, List<Holder<T>>> = Either.left(tag)
+    override fun getRandomElement(random: RandomSource): Optional<Holder<T>> = Optional.empty()
+    override fun get(index: Int): Holder<T>? = null
+    override fun contains(entry: Holder<T>): Boolean = false
+    override fun canSerializeIn(owner: HolderOwner<T>): Boolean = true
+    override fun unwrapKey(): Optional<TagKey<T>> = Optional.of(tag)
+    override fun iterator(): MutableIterator<Holder<T>> = mutableListOf<Holder<T>>().iterator()
+}

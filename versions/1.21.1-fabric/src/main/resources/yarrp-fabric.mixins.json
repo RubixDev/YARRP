@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "package": "de.rubixdev.yarrp.mixin.fabric",
+  "compatibilityLevel": "JAVA_21",
+  "minVersion": "0.8",
+  "plugin": "de.rubixdev.yarrp.MixinPlugin",
+  "mixins": [
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
