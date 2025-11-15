@@ -4,7 +4,7 @@
 [![Modrinth Downloads](https://img.shields.io/modrinth/dt/Z2RtCqwR?style=for-the-badge&logo=modrinth&label=Modrinth%20Downloads&color=%2300af5c)](https://modrinth.com/mod/yarrp)
 [![CurseForge Downloads](https://img.shields.io/curseforge/dt/1385339?style=for-the-badge&logo=curseforge&label=CurseForge%20Downloads&color=%23f16436)](https://www.curseforge.com/minecraft/mc-mods/yarrp)
 
-![Icon](src/main/resources/assets/yarrp/icon.png)
+<img alt="Icon" src="src/main/resources/assets/yarrp/icon.png" width="128" />
 
 Has it ever bothered you that so much configuration of blocks, items, recipes,
 and now even enchantments is defined in untyped JSON files? Well then you should
