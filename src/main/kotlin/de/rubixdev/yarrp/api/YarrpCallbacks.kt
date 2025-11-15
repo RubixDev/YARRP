@@ -7,20 +7,35 @@ internal typealias PackAdder = (PackResources) -> Unit
 private typealias PackCallback = (PackAdder) -> Unit
 
 object YarrpCallbacks {
-    private val callbacks = mutableMapOf<RegistrationTime, MutableList<PackCallback>>()
+    private val callbacks = mutableMapOf<PackPosition, MutableList<PackCallback>>()
 
+    /**
+     * Register callbacks for adding [RuntimeResourcePack]s.
+     *
+     * @param[pos] where to place the packs
+     * @param[callbacks] the callbacks to register
+     */
     @JvmStatic
-    fun register(time: RegistrationTime, vararg callbacks: PackCallback) {
-        callbacks.forEach(this.callbacks.getOrPut(time, ::mutableListOf)::add)
+    fun register(pos: PackPosition, vararg callbacks: PackCallback) {
+        callbacks.forEach(this.callbacks.getOrPut(pos, ::mutableListOf)::add)
     }
 
-    fun register(time: RegistrationTime, callback: PackAdderDsl.() -> Unit) {
-        register(time, { adder -> PackAdderDsl(adder).callback() })
+    /**
+     * Register a callback for adding [RuntimeResourcePack]s using the [PackAdderDsl].
+     *
+     * @param[pos] where to place the packs
+     * @param[callback] the callback to register
+     */
+    inline fun register(pos: PackPosition, crossinline callback: PackAdderDsl.() -> Unit) {
+        register(pos, { adder -> PackAdderDsl(adder).callback() })
     }
 
+    /**
+     * @suppress Not part of the public API
+     */
     @JvmStatic
     @ApiStatus.Internal
-    fun run(time: RegistrationTime, adder: PackAdder) {
-        callbacks[time]?.forEach { it(adder) }
+    fun run(pos: PackPosition, adder: PackAdder) {
+        callbacks[pos]?.forEach { it(adder) }
     }
 }

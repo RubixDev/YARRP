@@ -9,6 +9,17 @@ import net.minecraft.core.HolderSet
 import net.minecraft.tags.TagKey
 import net.minecraft.util.RandomSource
 
+/**
+ * A dummy implementation of [HolderSet] to help with [RuntimeResourcePack] creation.
+ *
+ * In some instances, Minecraft's resource builders expect a [HolderSet] for specifying
+ * a collection of e.g. items. When specifying this collection simply by a [TagKey], these
+ * must usually be obtained from a [net.minecraft.core.Registry]. But when creating a
+ * [RuntimeResourcePack], the only information we need is the actual [TagKey] itself,
+ * which will be serialized to a string beforehand anyway. This class is used for exactly
+ * that. It allows us to create a [HolderSet] from a [TagKey] without a [net.minecraft.core.Registry],
+ * and it always serializes to just the tag.
+ */
 class DummyHolderSet<T>(val tag: TagKey<T>) : HolderSet<T> {
     override fun stream(): Stream<Holder<T>> = Stream.empty()
     override fun size(): Int = 0

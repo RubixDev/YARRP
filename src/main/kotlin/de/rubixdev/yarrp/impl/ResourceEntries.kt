@@ -12,9 +12,14 @@ internal sealed class PackEntry {
     fun asResource(): Resource? = (this as? ResourceEntry)?.resource
     fun asDirectory(): DirectoryMap? = (this as? DirectoryEntry)?.nested
 
-    fun find(path: List<String>): PackEntry? = path.fold(this as PackEntry?) { entry, segment -> entry?.asDirectory()?.get(segment) }
+    fun find(path: List<String>): PackEntry? = path.fold(this as PackEntry?) { entry, segment ->
+        entry?.asDirectory()?.get(segment)
+    }
 
-    fun findAllResources(path: List<String> = listOf(), consumer: (path: List<String>, resource: Resource) -> Unit): Unit = asDirectory()?.entries?.forEach { (name, entry) ->
+    fun findAllResources(
+        path: List<String> = listOf(),
+        consumer: (path: List<String>, resource: Resource) -> Unit,
+    ): Unit = asDirectory()?.entries?.forEach { (name, entry) ->
         when (entry) {
             is ResourceEntry -> consumer(path + name, entry.resource)
             is DirectoryEntry -> entry.findAllResources(path + name, consumer)

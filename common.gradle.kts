@@ -159,7 +159,9 @@ dependencies {
         Loader.NEOFORGE -> {
             "neoForge"("net.neoforged:neoforge:${props.neoforge_version}")
 
-            include(modImplementation("me.fallenbreath:conditional-mixin-neoforge:${props.conditional_mixin_version}")!!)
+            include(
+                modImplementation("me.fallenbreath:conditional-mixin-neoforge:${props.conditional_mixin_version}")!!,
+            )
 
             implementation("thedarkcolour:kotlinforforge-neoforge:${props.neoforge_kotlin_version}")
         }

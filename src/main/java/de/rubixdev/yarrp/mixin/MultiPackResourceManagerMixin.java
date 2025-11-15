@@ -3,7 +3,7 @@ package de.rubixdev.yarrp.mixin;
 import com.google.common.collect.Lists;
 import de.rubixdev.yarrp.ModConstants;
 import de.rubixdev.yarrp.api.YarrpCallbacks;
-import de.rubixdev.yarrp.api.RegistrationTime;
+import de.rubixdev.yarrp.api.PackPosition;
 import kotlin.Unit;
 import net.minecraft.server.packs.PackResources;
 import net.minecraft.server.packs.PackType;
@@ -24,13 +24,13 @@ public abstract class MultiPackResourceManagerMixin implements CloseableResource
         var reversedView = Lists.reverse(copy);
 
         ModConstants.LOGGER.debug("Registering BEFORE_VANILLA packs");
-        YarrpCallbacks.run(RegistrationTime.BEFORE_VANILLA, pack -> {
+        YarrpCallbacks.run(PackPosition.BEFORE_VANILLA, pack -> {
             reversedView.add(pack);
             return Unit.INSTANCE;
         });
 
         ModConstants.LOGGER.debug("Registering AFTER_VANILLA packs");
-        YarrpCallbacks.run(RegistrationTime.BEFORE_VANILLA, pack -> {
+        YarrpCallbacks.run(PackPosition.BEFORE_VANILLA, pack -> {
             copy.add(pack);
             return Unit.INSTANCE;
         });

@@ -53,6 +53,7 @@ spotless {
             "ktlint_standard_blank-line-before-declaration" to "disabled",
             "ktlint_standard_spacing-between-declarations-with-annotations" to "disabled",
             "ktlint_standard_no-empty-file" to "disabled",
+            "max_line_length" to "120",
             // these are replaced by the custom rule set
             "ktlint_standard_import-ordering" to "disabled",
             "ktlint_standard_comment-spacing" to "disabled",
