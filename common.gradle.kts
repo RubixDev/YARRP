@@ -83,7 +83,6 @@ class Props {
     val neoforge_version_range: String by prop
 
     val early_loading_screen_version: String by prop
-    val fabric_api_version: String by prop
 }
 val props: Props = Props()
 
@@ -148,8 +147,6 @@ dependencies {
             modLocalRuntime("maven.modrinth:early-loading-screen:${props.early_loading_screen_version}")
 
             modImplementation("net.fabricmc:fabric-loader:${props.fabric_loader_version}")
-            modCompileOnly("net.fabricmc.fabric-api:fabric-api:${props.fabric_api_version}")
-            modLocalRuntime("net.fabricmc.fabric-api:fabric-api:${props.fabric_api_version}")
 
             include(modImplementation("me.fallenbreath:conditional-mixin-fabric:${props.conditional_mixin_version}")!!)
 
