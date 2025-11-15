@@ -51,7 +51,7 @@ jobs:
       - build
     runs-on: ubuntu-latest
 
-    # allow the mod publish step to add asserts to release
+    # allow the mod publish step to add assets to release
     # https://docs.github.com/en/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token
     permissions:
       contents: write
@@ -171,10 +171,8 @@ jobs:
         id: dependencies
         run: |
           echo 'value<<EOF' >> "$GITHUB_OUTPUT"
-          echo 'cloth-config(required){modrinth:9s6osm5g}{curseforge:348521}' >> "$GITHUB_OUTPUT"
           if [ "${{ endsWith(matrix.subproject, '-fabric') }}" = "true" ]; then
               # shellcheck disable=SC2129
-              echo 'fabric-api(required){modrinth:P7dR8mSH}{curseforge:306612}' >> "$GITHUB_OUTPUT"
               echo 'fabric-language-kotlin(required){modrinth:Ha28R6CL}{curseforge:308769}' >> "$GITHUB_OUTPUT"
               echo 'modmenu(optional){modrinth:mOgUt4GM}{curseforge:308702}' >> "$GITHUB_OUTPUT"
           else
@@ -183,14 +181,14 @@ jobs:
           echo 'EOF' >> "$GITHUB_OUTPUT"
 
       - name: Publish Minecraft Mods
-        uses: Kir-Antipov/mc-publish@v3.3
+        uses: Kira-NT/mc-publish@v3.3
         with:
           # https://modrinth.com/settings/pats
-          modrinth-id: LcafSQPm
+          modrinth-id: Z2RtCqwR
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
           # https://legacy.curseforge.com/account/api-tokens
-          curseforge-id: ${{ endsWith(matrix.subproject, '-fabric') && 491073 || 497122 }}
+          curseforge-id: 1385339
           curseforge-token: ${{ secrets.CF_API_TOKEN }}
 
           github-tag: ${{ steps.release_info.outputs.tag_name }}
@@ -207,7 +205,7 @@ jobs:
           version:
             ${{ format('{1}+{0}', steps.properties_v.outputs.minecraft_version,
             steps.properties_g.outputs.mod_version) }}
-          version-type: release
+          version-type: beta
 
           loaders: ${{ endsWith(matrix.subproject, '-fabric') && 'fabric' || (endsWith(matrix.subproject, '-forge') && 'forge' || 'neoforge') }}
           game-versions: ${{ steps.game_versions.outputs.value }}
