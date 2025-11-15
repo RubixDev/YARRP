@@ -37,9 +37,11 @@ dependencies {
 }
 ```
 
-Don't forget to also list YARRP as a dependency in your `fabric.mod.json` and `neoforge.mods.toml` files.
+Don't forget to also list YARRP as a dependency in your `fabric.mod.json` and
+`neoforge.mods.toml` files.
 
-You can then use YARRP by creating a pack and adding it to one of the register callbacks. Here's an example:
+You can then use YARRP by creating a pack and adding it to one of the register
+callbacks. Here's an example:
 
 ```kotlin
 object MyModResources {
