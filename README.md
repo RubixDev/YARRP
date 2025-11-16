@@ -47,7 +47,9 @@ callbacks. Here's an example:
 object MyModResources {
     // call this in your mod initializer
     fun register() {
-        YarrpCallbacks.register(PackPosition.AFTER_VANILLA) { add(PACK) }
+        YarrpCallbacks.register(PackPosition.AFTER_VANILLA, ResourceType.SERVER_DATA) {
+            add(PACK)
+        }
     }
 
     @JvmField

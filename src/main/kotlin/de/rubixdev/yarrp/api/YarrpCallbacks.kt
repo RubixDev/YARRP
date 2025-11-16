@@ -1,33 +1,37 @@
 package de.rubixdev.yarrp.api
 
+import de.rubixdev.yarrp.LOGGER
 import net.minecraft.server.packs.PackResources
+import net.minecraft.server.packs.PackType
 import org.jetbrains.annotations.ApiStatus
 
 internal typealias PackAdder = (PackResources) -> Unit
 private typealias PackCallback = (PackAdder) -> Unit
 
 object YarrpCallbacks {
-    private val callbacks = mutableMapOf<PackPosition, MutableList<PackCallback>>()
+    private val callbacks = mutableMapOf<Pair<PackPosition, PackType>, MutableList<PackCallback>>()
 
     /**
      * Register callbacks for adding [RuntimeResourcePack]s.
      *
      * @param[pos] where to place the packs
+     * @param[type] the type of the packs to add
      * @param[callbacks] the callbacks to register
      */
     @JvmStatic
-    fun register(pos: PackPosition, vararg callbacks: PackCallback) {
-        callbacks.forEach(this.callbacks.getOrPut(pos, ::mutableListOf)::add)
+    fun register(pos: PackPosition, type: PackType, vararg callbacks: PackCallback) {
+        callbacks.forEach(this.callbacks.getOrPut(pos to type, ::mutableListOf)::add)
     }
 
     /**
      * Register a callback for adding [RuntimeResourcePack]s using the [PackAdderDsl].
      *
      * @param[pos] where to place the packs
+     * @param[type] the type of the packs to add
      * @param[callback] the callback to register
      */
-    inline fun register(pos: PackPosition, crossinline callback: PackAdderDsl.() -> Unit) {
-        register(pos, { adder -> PackAdderDsl(adder).callback() })
+    inline fun register(pos: PackPosition, type: PackType, crossinline callback: PackAdderDsl.() -> Unit) {
+        register(pos, type, { adder -> PackAdderDsl(adder).callback() })
     }
 
     /**
@@ -35,7 +39,12 @@ object YarrpCallbacks {
      */
     @JvmStatic
     @ApiStatus.Internal
-    fun run(pos: PackPosition, adder: PackAdder) {
-        callbacks[pos]?.forEach { it(adder) }
+    fun run(pos: PackPosition, type: PackType, adder: PackAdder) {
+        callbacks[pos to type]?.forEach {
+            it { pack ->
+                LOGGER.debug("adding pack '{}' with known pack info: {}", pack.packId(), pack.knownPackInfo())
+                adder(pack)
+            }
+        }
     }
 }
