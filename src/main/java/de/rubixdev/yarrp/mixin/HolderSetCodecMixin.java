@@ -29,7 +29,7 @@ public abstract class HolderSetCodecMixin<E> implements Codec<HolderSet<E>> {
         at = @At("HEAD"),
         cancellable = true
     )
-    public <T> void encodeDummySet(
+    public <T> void yarrp$encodeDummySet(
         HolderSet<E> input,
         DynamicOps<T> ops,
         T prefix,

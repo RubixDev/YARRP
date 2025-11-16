@@ -85,7 +85,7 @@ class RuntimeResourcePack(
         private val List<String>.withJsonExt get() = dropLast(1) + "${last()}.json"
 
         /**
-         * The [PackSource] that should be used by [de.rubixdev.yarrp.api.RuntimeResourcePack]s.
+         * The [PackSource] that should be used by runtime packs.
          */
         @JvmField
         val SOURCE = object : PackSource {
@@ -95,7 +95,7 @@ class RuntimeResourcePack(
         }
 
         /**
-         * A utility function for creating [PackLocationInfo] for [de.rubixdev.yarrp.api.RuntimeResourcePack]s.
+         * A utility function for creating [PackLocationInfo] for runtime packs.
          *
          * Uses [SOURCE] as the [PackSource].
          *
@@ -114,7 +114,7 @@ class RuntimeResourcePack(
         )
 
         /**
-         * A utility function for creating the [PackMetadataSection] for a [de.rubixdev.yarrp.api.RuntimeResourcePack].
+         * A utility function for creating the [PackMetadataSection] for a runtime pack.
          *
          * As the pack is generated at runtime, its pack version is always set to the current version.
          *
@@ -208,7 +208,7 @@ class RuntimeResourcePack(
     fun <T> addResource(type: PackType, path: List<String>, codec: Codec<T>, id: ResourceLocation, value: T) {
         val path = listOf(id.namespace) + path + id.splitPath.withJsonExt
         val json = GSON.toJson(codec.encodeStart(JsonOps.INSTANCE, value).getOrThrow())
-        LOGGER.debug("adding resource:\n{}\n{}", path.joinToString("/"), json)
+        LOGGER.debug("adding resource to {}:\n{}\n{}", info.id, path.joinToString("/"), json)
         addResource(type, path, json)
     }
 
