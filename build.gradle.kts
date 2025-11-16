@@ -1,4 +1,5 @@
 import com.diffplug.gradle.spotless.BaseKotlinExtension
+import groovy.json.JsonSlurper
 
 plugins {
     id("maven-publish")
@@ -14,6 +15,8 @@ plugins {
     id("me.fallenbreath.yamlang") version "1.5.0" apply false
 
     id("com.diffplug.spotless") version "8.0.0"
+
+    id("org.jetbrains.dokka") version "2.0.0"
 }
 
 tasks.named("assemble").get().dependsOn("spotlessApply")
@@ -84,6 +87,14 @@ spotless {
     json {
         target("**/*.json")
         gson().indentWithSpaces(2)
+    }
+}
+
+dependencies {
+    @Suppress("UNCHECKED_CAST")
+    val settings = JsonSlurper().parseText(rootDir.resolve("settings.json").readText()) as Map<String, List<String>>
+    for (version in settings["versions"]!!) {
+        dokka(project(":$version:"))
     }
 }
 

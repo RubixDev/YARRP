@@ -8,6 +8,7 @@ plugins {
     kotlin("jvm")
     id("com.replaymod.preprocess")
     id("me.fallenbreath.yamlang")
+    id("org.jetbrains.dokka")
 }
 
 val loaderName = if (project.name.endsWith("-common")) "common" else loom.platform.get().name.lowercase()
