@@ -31,9 +31,9 @@ repositories {
 }
 
 dependencies {
-    // <loader> is one of `fabric` or `neoforge`
-    modImplementation("com.github.RubixDev.YARRP:yarrp-mc<minecraft version>-<loader>:<yarrp version>") // when using jitpack
-    modImplementation("maven.modrinth:yarrp:<yarrp version>+<minecraft version>-<loader>") // when using modrinth maven
+    // replace the versions and loader as needed. the loader is one of `fabric` or `neoforge`
+    modImplementation("com.github.RubixDev.YARRP:yarrp-mc1.21.1-fabric:v0.1.1") // when using jitpack
+    modImplementation("maven.modrinth:yarrp:0.1.1+1.21.1-fabric") // when using modrinth maven
 }
 ```
 
