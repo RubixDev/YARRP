@@ -5,6 +5,7 @@
   "minVersion": "0.8",
   "plugin": "de.rubixdev.yarrp.MixinPlugin",
   "mixins": [
+    "FolderRepositorySourceMixin",
     "HolderSetCodecMixin",
     "MultiPackResourceManagerMixin"
   ],

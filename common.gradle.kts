@@ -100,6 +100,8 @@ loom {
             accessWidenerPath = it
         }
     }
+
+    log4jConfigs.from(rootDir.resolve("log4j-dev.xml"))
 }
 
 repositories {

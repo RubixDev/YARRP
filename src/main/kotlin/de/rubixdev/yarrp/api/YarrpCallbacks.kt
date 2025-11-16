@@ -1,8 +1,12 @@
 package de.rubixdev.yarrp.api
 
 import de.rubixdev.yarrp.LOGGER
+import java.util.function.Consumer
+import net.minecraft.server.packs.PackLocationInfo
 import net.minecraft.server.packs.PackResources
+import net.minecraft.server.packs.PackSelectionConfig
 import net.minecraft.server.packs.PackType
+import net.minecraft.server.packs.repository.Pack
 import org.jetbrains.annotations.ApiStatus
 
 internal typealias PackAdder = (PackResources) -> Unit
@@ -34,9 +38,7 @@ object YarrpCallbacks {
         register(pos, type, { adder -> PackAdderDsl(adder).callback() })
     }
 
-    /**
-     * @suppress Not part of the public API
-     */
+    /** @suppress not part of the public API */
     @JvmStatic
     @ApiStatus.Internal
     fun run(pos: PackPosition, type: PackType, adder: PackAdder) {
@@ -45,6 +47,41 @@ object YarrpCallbacks {
                 LOGGER.debug("adding pack '{}' with known pack info: {}", pack.packId(), pack.knownPackInfo())
                 adder(pack)
             }
+        }
+    }
+
+    /** @suppress not part of the public API */
+    @JvmStatic
+    @ApiStatus.Internal
+    fun logPackList(packs: Collection<PackResources>) {
+        LOGGER.debug("Full list of packs is now:{}", packs.joinToString("\n- ", "\n- ") { it.packId() })
+    }
+
+    /** @suppress not part of the public API */
+    @JvmStatic
+    @ApiStatus.Internal
+    fun wrapPackConsumer(consumer: Consumer<Pack>, type: PackType, position: Pack.Position): PackAdder = { pack ->
+        Pack.readMetaAndCreate(
+            pack.location(),
+            object : Pack.ResourcesSupplier {
+                override fun openPrimary(location: PackLocationInfo) = pack
+                override fun openFull(location: PackLocationInfo, metadata: Pack.Metadata) = pack
+            },
+            type,
+            PackSelectionConfig(false, position, false),
+        )?.let(consumer::accept)
+    }
+
+    /** @suppress not part of the public API */
+    @JvmStatic
+    @ApiStatus.Internal
+    fun addAfterVanilla(packs: MutableList<PackResources>, type: PackType) {
+        val vanillaIdx = packs.indexOfFirst { it.packId() == "vanilla" }
+        if (vanillaIdx != -1) {
+            LOGGER.debug("Registering AFTER_VANILLA packs with type {}", type)
+            val newPacks = mutableListOf<PackResources>()
+            run(PackPosition.AFTER_VANILLA, type, newPacks::add)
+            packs.addAll(vanillaIdx + 1, newPacks)
         }
     }
 }

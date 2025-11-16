@@ -90,7 +90,7 @@ class RuntimeResourcePack(
         @JvmField
         val SOURCE = object : PackSource {
             override fun decorate(name: Component): Component =
-                Component.translatable("pack.nameAndSource", name, Component.literal("Runtime generated"))
+                Component.translatable("pack.nameAndSource", name, Component.literal("runtime generated"))
             override fun shouldAddAutomatically(): Boolean = true
         }
 
@@ -160,13 +160,13 @@ class RuntimeResourcePack(
     override fun getNamespaces(type: PackType): Set<String> =
         root.nested[type.directory]?.asDirectory()?.keys ?: setOf()
 
-    override fun <T : Any> getMetadataSection(metaReader: MetadataSectionSerializer<T>): T? =
+    override fun <T> getMetadataSection(metaReader: MetadataSectionSerializer<T>): T? =
         @Suppress("UNCHECKED_CAST")
-        when (metaReader.metadataSectionName) {
-            PackMetadataSection.TYPE.metadataSectionName -> metadata as T
-            FeatureFlagsMetadataSection.TYPE.metadataSectionName -> features as T?
-            ResourceFilterSection.TYPE.metadataSectionName -> filter as T?
-            OverlayMetadataSection.TYPE.metadataSectionName -> overlays as T?
+        when (metaReader) {
+            PackMetadataSection.TYPE -> metadata as T
+            FeatureFlagsMetadataSection.TYPE -> features as T?
+            ResourceFilterSection.TYPE -> filter as T?
+            OverlayMetadataSection.TYPE -> overlays as T?
             else -> null
         }
 
