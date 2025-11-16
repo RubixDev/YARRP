@@ -384,60 +384,47 @@ class RuntimeResourcePack(
     //$$     addResource(PackType.SERVER_DATA, listOf("advancements"), Advancement.CODEC, id, advancement)
     //#endif
 
+    private inline fun createRecipeExporter(
+        crossinline impl: (recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?) -> Unit,
+    ) = object : RecipeOutput {
+        override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?) =
+            impl(recipeId, recipe, advancement)
+
+        @Suppress("removal", "DEPRECATION") // vanilla does the same
+        override fun advancement(): Advancement.Builder =
+            Advancement.Builder.recipeAdvancement().parent(RecipeBuilder.ROOT_RECIPE_ADVANCEMENT)
+
+        //#if NEOFORGE
+        //$$ override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?, vararg conditions: ICondition) =
+        //$$     accept(recipeId, recipe, advancement)
+        //#endif
+    }
+
     /**
      * A [RecipeOutput] which adds recipes and advancements to this pack.
      */
-    val recipeExporter by lazy {
-        object : RecipeOutput {
-            override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?) {
-                addRecipe(recipeId, recipe)
-                if (advancement != null) addAdvancement(advancement)
-            }
-
-            override fun advancement(): Advancement.Builder = Advancement.Builder.recipeAdvancement()
-                .parent(AdvancementHolder(RecipeBuilder.ROOT_RECIPE_ADVANCEMENT, null))
-
-            //#if NEOFORGE
-            //$$ override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?, vararg conditions: ICondition) =
-            //$$     accept(recipeId, recipe, advancement)
-            //#endif
+    val recipeExporter: RecipeOutput by lazy {
+        createRecipeExporter { recipeId, recipe, advancement ->
+            addRecipe(recipeId, recipe)
+            if (advancement != null) addAdvancement(advancement)
         }
     }
 
     /**
      * A [RecipeOutput] which ignores advancements and only adds recipes to this pack.
      */
-    val recipeExporterOnlyRecipe by lazy {
-        object : RecipeOutput {
-            override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?) {
-                addRecipe(recipeId, recipe)
-            }
-
-            override fun advancement(): Advancement.Builder = Advancement.Builder.recipeAdvancement()
-
-            //#if NEOFORGE
-            //$$ override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?, vararg conditions: ICondition) =
-            //$$     accept(recipeId, recipe, advancement)
-            //#endif
+    val recipeExporterOnlyRecipe: RecipeOutput by lazy {
+        createRecipeExporter { recipeId, recipe, _ ->
+            addRecipe(recipeId, recipe)
         }
     }
 
     /**
-     * A [RecipeOutput] which ignores recipes and only adds adcanvements to this pack.
+     * A [RecipeOutput] which ignores recipes and only adds advancements to this pack.
      */
-    val recipeExporterOnlyAdvancement by lazy {
-        object : RecipeOutput {
-            override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?) {
-                if (advancement != null) addAdvancement(advancement)
-            }
-
-            override fun advancement(): Advancement.Builder = Advancement.Builder.recipeAdvancement()
-                .parent(AdvancementHolder(RecipeBuilder.ROOT_RECIPE_ADVANCEMENT, null))
-
-            //#if NEOFORGE
-            //$$ override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?, vararg conditions: ICondition) =
-            //$$     accept(recipeId, recipe, advancement)
-            //#endif
+    val recipeExporterOnlyAdvancement: RecipeOutput by lazy {
+        createRecipeExporter { _, _, advancement ->
+            if (advancement != null) addAdvancement(advancement)
         }
     }
 
