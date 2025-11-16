@@ -95,3 +95,6 @@ object MyModResources {
     }
 }
 ```
+
+Full API documentation can be found at
+[yarrp.rubixdev.de](https://yarrp.rubixdev.de).
