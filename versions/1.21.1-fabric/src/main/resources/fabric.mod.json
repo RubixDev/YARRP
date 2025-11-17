@@ -19,6 +19,10 @@
       {
         "value": "de.rubixdev.yarrp.Mod",
         "adapter": "kotlin"
+      },
+      {
+        "value": "de.rubixdev.yarrp.test.TestMod",
+        "adapter": "kotlin"
       }
     ]
   },

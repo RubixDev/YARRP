@@ -102,6 +102,19 @@ loom {
         }
     }
 
+    runs {
+        create("testClient") {
+            client()
+            name("Test Minecraft Client")
+            source(sourceSets.test.get())
+        }
+        create("testServer") {
+            server()
+            name("Test Minecraft Server")
+            source(sourceSets.test.get())
+        }
+    }
+
     log4jConfigs.from(rootDir.resolve("log4j-dev.xml"))
 }
 
@@ -225,6 +238,11 @@ tasks.named<ProcessResources>("processResources") {
             it.file.name == "fabric.mod.json"
         }
     }
+}
+
+tasks.test {
+    // TestMod does not contain actual tests
+    failOnNoDiscoveredTests = false
 }
 
 // https://github.com/Fallen-Breath/yamlang
