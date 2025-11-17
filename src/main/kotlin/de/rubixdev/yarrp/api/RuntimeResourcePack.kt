@@ -39,7 +39,11 @@ import net.minecraft.server.packs.resources.ResourceFilterSection
 import net.minecraft.tags.TagEntry
 import net.minecraft.tags.TagFile
 import net.minecraft.tags.TagKey
+import net.minecraft.world.entity.EntityType
+import net.minecraft.world.item.Item
 import net.minecraft.world.item.crafting.Recipe
+import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.material.Fluid
 
 //#if NEOFORGE
 //$$ import net.neoforged.neoforge.common.conditions.ICondition
@@ -251,6 +255,48 @@ class RuntimeResourcePack(
     ////// Tags //////
 
     /**
+     * Add an [EntityType] tag definition using an [IntrinsicHolderTagBuilder] callback.
+     *
+     * @param[tagKey] the tag to create or add to or replace
+     * @param[tagBuilder] a callback on [IntrinsicHolderTagBuilder] to create the tag
+     * @return the passed [TagKey]
+     */
+    inline fun addEntityTypeTag(
+        tagKey: TagKey<EntityType<*>>,
+        tagBuilder: IntrinsicHolderTagBuilder<EntityType<*>>.() -> Unit,
+    ) = addTag(tagKey, IntrinsicHolderTagBuilder.entityType(), tagBuilder)
+
+    /**
+     * Add a [Fluid] tag definition using an [IntrinsicHolderTagBuilder] callback.
+     *
+     * @param[tagKey] the tag to create or add to or replace
+     * @param[tagBuilder] a callback on [IntrinsicHolderTagBuilder] to create the tag
+     * @return the passed [TagKey]
+     */
+    inline fun addFluidTag(tagKey: TagKey<Fluid>, tagBuilder: IntrinsicHolderTagBuilder<Fluid>.() -> Unit) =
+        addTag(tagKey, IntrinsicHolderTagBuilder.fluid(), tagBuilder)
+
+    /**
+     * Add a [Item] tag definition using an [IntrinsicHolderTagBuilder] callback.
+     *
+     * @param[tagKey] the tag to create or add to or replace
+     * @param[tagBuilder] a callback on [IntrinsicHolderTagBuilder] to create the tag
+     * @return the passed [TagKey]
+     */
+    inline fun addItemTag(tagKey: TagKey<Item>, tagBuilder: IntrinsicHolderTagBuilder<Item>.() -> Unit) =
+        addTag(tagKey, IntrinsicHolderTagBuilder.item(), tagBuilder)
+
+    /**
+     * Add a [Block] tag definition using an [IntrinsicHolderTagBuilder] callback.
+     *
+     * @param[tagKey] the tag to create or add to or replace
+     * @param[tagBuilder] a callback on [IntrinsicHolderTagBuilder] to create the tag
+     * @return the passed [TagKey]
+     */
+    inline fun addBlockTag(tagKey: TagKey<Block>, tagBuilder: IntrinsicHolderTagBuilder<Block>.() -> Unit) =
+        addTag(tagKey, IntrinsicHolderTagBuilder.block(), tagBuilder)
+
+    /**
      * Add a tag definition using a [TagBuilder] callback.
      *
      * @param[tagKey] the tag to create or add to or replace
@@ -258,7 +304,18 @@ class RuntimeResourcePack(
      * @return the passed [TagKey]
      */
     inline fun <T> addTag(tagKey: TagKey<T>, tagBuilder: TagBuilder<T>.() -> Unit) =
-        addTag(tagKey, TagBuilder<T>().apply(tagBuilder))
+        addTag(tagKey, TagBuilder(), tagBuilder)
+
+    /**
+     * Add a tag definition using a generic [TagBuilder] callback.
+     *
+     * @param[tagKey] the tag to create or add to or replace
+     * @param[builder] the [TagBuilder] instance to use
+     * @param[tagBuilder] a callback on the provided type of [TagBuilder] to create the tag
+     * @return the passed [TagKey]
+     */
+    inline fun <T, B : TagBuilder<T>> addTag(tagKey: TagKey<T>, builder: B, tagBuilder: B.() -> Unit) =
+        addTag(tagKey, builder.apply(tagBuilder))
 
     /**
      * Add a tag definition using a [TagBuilder].

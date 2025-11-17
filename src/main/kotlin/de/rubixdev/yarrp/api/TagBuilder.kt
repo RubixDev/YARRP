@@ -14,9 +14,13 @@ import net.minecraft.tags.TagKey
  * It also has additional type-safe methods which enforce the correct type of entries to
  * be added.
  */
-class TagBuilder<T> {
+open class TagBuilder<T> {
     private val builder = net.minecraft.tags.TagBuilder()
-    private var replace = false
+
+    /**
+     * The current value of the `replace` field.
+     */
+    var replace = false
 
     /**
      * Set the value of the `replace` field.
@@ -51,7 +55,7 @@ class TagBuilder<T> {
      * @param[key] the resource key to add
      * @return this builder
      */
-    fun add(key: ResourceKey<T>) = also { builder.addElement(key.location()) }
+    fun add(key: ResourceKey<T>) = also { add(key.location()) }
 
     /**
      * Add an optional element to this tag.
@@ -67,7 +71,7 @@ class TagBuilder<T> {
      * @param[key] the resource key to add
      * @return this builder
      */
-    fun addOptional(key: ResourceKey<T>) = also { builder.addOptionalElement(key.location()) }
+    fun addOptional(key: ResourceKey<T>) = also { addOptional(key.location()) }
 
     /**
      * Add another tag to this tag.
@@ -83,7 +87,7 @@ class TagBuilder<T> {
      * @param[key] the tag to add
      * @return this builder
      */
-    fun addTag(key: TagKey<T>) = also { builder.addTag(key.location) }
+    fun addTag(key: TagKey<T>) = also { addTag(key.location) }
 
     /**
      * Add another optional tag to this tag.
@@ -99,7 +103,7 @@ class TagBuilder<T> {
      * @param[key] the tag to add
      * @return this builder
      */
-    fun addOptionalTag(key: TagKey<T>) = also { builder.addOptionalTag(key.location) }
+    fun addOptionalTag(key: TagKey<T>) = also { addOptionalTag(key.location) }
 
     /**
      * Build the final [TagFile]
