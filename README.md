@@ -45,7 +45,7 @@ callbacks. Here's an example:
 
 ```kotlin
 object MyModResources {
-    // call this in your mod initializer
+    // call this in your mod initializer on Fabric, or during the `FMLCommonSetupEvent` on NeoForge
     fun register() {
         YarrpCallbacks.register(PackPosition.AFTER_VANILLA, ResourceType.SERVER_DATA) {
             add(PACK)
