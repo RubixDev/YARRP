@@ -66,7 +66,7 @@ import net.minecraft.core.registries.Registries
  * @param[overlays] optional metadata for pack overlays
  * @param[extraFiles] additional raw files to include in this resource pack
  */
-class RuntimeResourcePack(
+class RuntimeResourcePack @JvmOverloads constructor(
     private val info: PackLocationInfo,
     val metadata: PackMetadataSection,
     val features: FeatureFlagsMetadataSection? = null,

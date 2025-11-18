@@ -130,5 +130,7 @@ class TestPacks(private val modVersion: String) {
         )
         pack7.addTag(EnchantmentTags.TREASURE) { add(testEnchantment) }
         //#endif
+
+        JavaTestPacks(modVersion)
     }
 }

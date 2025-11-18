@@ -32,8 +32,8 @@ repositories {
 
 dependencies {
     // replace the versions and loader as needed. the loader is one of `fabric` or `neoforge`
-    modImplementation("com.github.RubixDev.YARRP:yarrp-mc1.21.1-fabric:v0.2.0") // when using jitpack
-    modImplementation("maven.modrinth:yarrp:0.2.0+1.21.1-fabric") // when using modrinth maven
+    modImplementation("com.github.RubixDev.YARRP:yarrp-mc1.21.1-fabric:v0.2.1") // when using jitpack
+    modImplementation("maven.modrinth:yarrp:0.2.1+1.21.1-fabric") // when using modrinth maven
 }
 ```
 
@@ -97,6 +97,13 @@ object MyModResources {
     }
 }
 ```
+
+### Usage from Java
+
+An example of using this with Java can be found
+[here](https://github.com/RubixDev/YARRP/blob/HEAD/src/test/java/de/rubixdev/yarrp/test/JavaTestPacks.java).
+
+### API
 
 Full API documentation can be found at
 [yarrp.rubixdev.de](https://yarrp.rubixdev.de).

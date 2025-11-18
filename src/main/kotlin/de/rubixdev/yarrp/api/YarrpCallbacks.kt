@@ -34,8 +34,21 @@ object YarrpCallbacks {
      * @param[type] the type of the packs to add
      * @param[callback] the callback to register
      */
+    @JvmStatic
     inline fun register(pos: PackPosition, type: PackType, crossinline callback: PackAdderDsl.() -> Unit) {
         register(pos, type, { adder -> PackAdderDsl(adder).callback() })
+    }
+
+    /**
+     * Register a callback for adding [RuntimeResourcePack]s using Java [Consumer]s.
+     *
+     * @param[pos] where to place the packs
+     * @param[type] the type of the packs to add
+     * @param[callback] the callback to register
+     */
+    @JvmStatic
+    fun javaRegister(pos: PackPosition, type: PackType, callback: Consumer<Consumer<PackResources>>) {
+        register(pos, type, { adder -> callback.accept(adder) })
     }
 
     /** @suppress not part of the public API */

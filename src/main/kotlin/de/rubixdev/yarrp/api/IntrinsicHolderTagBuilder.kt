@@ -15,24 +15,28 @@ class IntrinsicHolderTagBuilder<T>(private val keyExtractor: (T) -> ResourceKey<
          * Create a tag builder for [EntityType]s.
          */
         @Suppress("DEPRECATION")
+        @JvmStatic
         fun entityType() = IntrinsicHolderTagBuilder<EntityType<*>> { it.builtInRegistryHolder().key() }
 
         /**
          * Create a tag builder for [Fluid]s.
          */
         @Suppress("DEPRECATION")
+        @JvmStatic
         fun fluid() = IntrinsicHolderTagBuilder<Fluid> { it.builtInRegistryHolder().key() }
 
         /**
          * Create a tag builder for [Item]s.
          */
         @Suppress("DEPRECATION")
+        @JvmStatic
         fun item() = IntrinsicHolderTagBuilder<Item> { it.builtInRegistryHolder().key() }
 
         /**
          * Create a tag builder for [Block]s.
          */
         @Suppress("DEPRECATION")
+        @JvmStatic
         fun block() = IntrinsicHolderTagBuilder<Block> { it.builtInRegistryHolder().key() }
     }
 
