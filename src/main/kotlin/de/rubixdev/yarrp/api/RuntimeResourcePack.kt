@@ -32,7 +32,7 @@ import net.minecraft.server.packs.OverlayMetadataSection
 import net.minecraft.server.packs.PackLocationInfo
 import net.minecraft.server.packs.PackResources
 import net.minecraft.server.packs.PackType
-import net.minecraft.server.packs.metadata.MetadataSectionSerializer
+import net.minecraft.server.packs.metadata.MetadataSectionType
 import net.minecraft.server.packs.metadata.pack.PackMetadataSection
 import net.minecraft.server.packs.repository.KnownPack
 import net.minecraft.server.packs.repository.PackSource
@@ -166,7 +166,7 @@ class RuntimeResourcePack @JvmOverloads constructor(
     override fun getNamespaces(type: PackType): Set<String> =
         root.nested[type.directory]?.asDirectory()?.keys ?: setOf()
 
-    override fun <T> getMetadataSection(metaReader: MetadataSectionSerializer<T>): T? =
+    override fun <T> getMetadataSection(metaReader: MetadataSectionType<T>): T? =
         @Suppress("UNCHECKED_CAST")
         when (metaReader) {
             PackMetadataSection.TYPE -> metadata as T

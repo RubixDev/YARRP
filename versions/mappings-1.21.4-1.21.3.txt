@@ -1,0 +1,1 @@
+net.minecraft.server.packs.metadata.MetadataSectionType net.minecraft.server.packs.metadata.MetadataSectionSerializer
