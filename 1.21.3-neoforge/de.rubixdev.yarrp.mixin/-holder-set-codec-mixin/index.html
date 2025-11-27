@@ -1,0 +1,1256 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>HolderSetCodecMixin</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+    <div class="root">
+    <nav class="navigation theme-dark" id="navigation-wrapper">
+<a class="library-name--link" href="../../../index.html">
+                    YARRP
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">
+        </div>
+        <div class="navigation-controls">
+        <div class="filter-section filter-section_loading" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":1.21.3-neoforge/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox">
+                    <div class="dropdown--header"><span>Platform filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close platform filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":1.21.3-neoforge/main" data-filter=":1.21.3-neoforge/main">
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </div>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                    <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox">
+                        <div class="dropdown--header">
+                            <span>
+                                    YARRP
+                            </span>
+                            <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                                <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                            </button>
+                        </div>
+                        <div class="sidebar--inner" id="sideMenu"></div>
+                    </ul>
+                    <div class="dropdown--overlay"></div>
+                </div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="1.21.3-neoforge::de.rubixdev.yarrp.mixin/HolderSetCodecMixin///PointingToDeclaration//1456861801">
+  <div class="breadcrumbs"><a href="../../index.html">1.21.3-neoforge</a><span class="delimiter">/</span><a href="../index.html">de.rubixdev.yarrp.mixin</a><span class="delimiter">/</span><span class="current">HolderSetCodecMixin</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Holder</span><wbr><span>Set</span><wbr><span>Codec</span><wbr><span><span>Mixin</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">HolderSetCodecMixin</a><span class="token operator">&lt;</span><a href="index.html">E</a><span class="token operator">&gt;</span> : <span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt; </span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1440406344%2FConstructors%2F1456861801" anchor-label="HolderSetCodecMixin" id="-1440406344%2FConstructors%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-holder-set-codec-mixin.html"><span>Holder</span><wbr><span>Set</span><wbr><span>Codec</span><wbr><span><span>Mixin</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1440406344%2FConstructors%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="130843596%2FProperties%2F1456861801" anchor-label="BOOL" id="130843596%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#130843596%2FProperties%2F1456861801"><span><span>BOOL</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="130843596%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#130843596%2FProperties%2F1456861801">BOOL</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html">Boolean</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2120557714%2FProperties%2F1456861801" anchor-label="BYTE" id="-2120557714%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-2120557714%2FProperties%2F1456861801"><span><span>BYTE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2120557714%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#-2120557714%2FProperties%2F1456861801">BYTE</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Byte.html">Byte</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="448759405%2FProperties%2F1456861801" anchor-label="BYTE_BUFFER" id="448759405%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#448759405%2FProperties%2F1456861801"><span>BYTE_</span><wbr><span>BUFFER</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="448759405%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#448759405%2FProperties%2F1456861801">BYTE_BUFFER</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html">ByteBuffer</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1690321275%2FProperties%2F1456861801" anchor-label="DOUBLE" id="-1690321275%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1690321275%2FProperties%2F1456861801"><span><span>DOUBLE</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1690321275%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#-1690321275%2FProperties%2F1456861801">DOUBLE</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html">Double</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1983090025%2FProperties%2F1456861801" anchor-label="EMPTY" id="-1983090025%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1983090025%2FProperties%2F1456861801"><span><span>EMPTY</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1983090025%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#-1983090025%2FProperties%2F1456861801">EMPTY</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.datafixers.util/Unit///PointingToDeclaration/">Unit</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="638932072%2FProperties%2F1456861801" anchor-label="FLOAT" id="638932072%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#638932072%2FProperties%2F1456861801"><span><span>FLOAT</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="638932072%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#638932072%2FProperties%2F1456861801">FLOAT</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Float.html">Float</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="35449845%2FProperties%2F1456861801" anchor-label="INT" id="35449845%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#35449845%2FProperties%2F1456861801"><span><span>INT</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="35449845%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#35449845%2FProperties%2F1456861801">INT</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html">Integer</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1312977722%2FProperties%2F1456861801" anchor-label="INT_STREAM" id="-1312977722%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1312977722%2FProperties%2F1456861801"><span>INT_</span><wbr><span>STREAM</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1312977722%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#-1312977722%2FProperties%2F1456861801">INT_STREAM</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html">IntStream</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1650180218%2FProperties%2F1456861801" anchor-label="LONG" id="1650180218%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1650180218%2FProperties%2F1456861801"><span><span>LONG</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1650180218%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1650180218%2FProperties%2F1456861801">LONG</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Long.html">Long</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1595635551%2FProperties%2F1456861801" anchor-label="LONG_STREAM" id="-1595635551%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1595635551%2FProperties%2F1456861801"><span>LONG_</span><wbr><span>STREAM</span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1595635551%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#-1595635551%2FProperties%2F1456861801">LONG_STREAM</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/LongStream.html">LongStream</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="136212208%2FProperties%2F1456861801" anchor-label="PASSTHROUGH" id="136212208%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#136212208%2FProperties%2F1456861801"><span><span>PASSTHROUGH</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="136212208%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#136212208%2FProperties%2F1456861801">PASSTHROUGH</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Dynamic///PointingToDeclaration/">Dynamic</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1476171336%2FProperties%2F1456861801" anchor-label="SHORT" id="1476171336%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1476171336%2FProperties%2F1456861801"><span><span>SHORT</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1476171336%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1476171336%2FProperties%2F1456861801">SHORT</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Short.html">Short</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1751065157%2FProperties%2F1456861801" anchor-label="STRING" id="1751065157%2FProperties%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1751065157%2FProperties%2F1456861801"><span><span>STRING</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1751065157%2FProperties%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html#1751065157%2FProperties%2F1456861801">STRING</a><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/PrimitiveCodec///PointingToDeclaration/">PrimitiveCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1184426676%2FFunctions%2F1456861801" anchor-label="boxed" id="-1184426676%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1184426676%2FFunctions%2F1456861801"><span><span>boxed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1184426676%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1184426676%2FFunctions%2F1456861801"><span class="token function">boxed</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder.Boxed///PointingToDeclaration/">Decoder.Boxed</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="905465704%2FFunctions%2F1456861801" anchor-label="checkRange" id="905465704%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#905465704%2FFunctions%2F1456861801"><span>check</span><wbr><span><span>Range</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="905465704%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#905465704%2FFunctions%2F1456861801">N</a><span class="token operator"> : </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Number.html">Number</a><span class="token operator">?</span>, <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparable.html">Comparable</a><span class="token operator">&lt;</span><a href="index.html#905465704%2FFunctions%2F1456861801">N</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator">&gt; </span><a href="index.html#905465704%2FFunctions%2F1456861801"><span class="token function">checkRange</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="index.html#905465704%2FFunctions%2F1456861801">N</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><a href="index.html#905465704%2FFunctions%2F1456861801">N</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span class="token punctuation">(</span><a href="index.html#905465704%2FFunctions%2F1456861801">N</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><a href="index.html#905465704%2FFunctions%2F1456861801">N</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1941089483%2FFunctions%2F1456861801" anchor-label="comap" id="1941089483%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1941089483%2FFunctions%2F1456861801"><span><span>comap</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1941089483%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#1941089483%2FFunctions%2F1456861801">B</a><span class="token operator">&gt; </span><a href="index.html#1941089483%2FFunctions%2F1456861801"><span class="token function">comap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#1941089483%2FFunctions%2F1456861801">B</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToGenericParameters(0)/">A</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToDeclaration/">Encoder</span><span class="token operator">&lt;</span><a href="index.html#1941089483%2FFunctions%2F1456861801">B</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-690116822%2FFunctions%2F1456861801" anchor-label="comapFlatMap" id="-690116822%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-690116822%2FFunctions%2F1456861801"><span>comap</span><wbr><span>Flat</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-690116822%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-690116822%2FFunctions%2F1456861801">S</a><span class="token operator">&gt; </span><a href="index.html#-690116822%2FFunctions%2F1456861801"><span class="token function">comapFlatMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#-690116822%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#-690116822%2FFunctions%2F1456861801">S</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-690116822%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2006374679%2FFunctions%2F1456861801" anchor-label="compoundList" id="2006374679%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2006374679%2FFunctions%2F1456861801"><span>compound</span><wbr><span><span>List</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2006374679%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#2006374679%2FFunctions%2F1456861801">K</a><span class="token punctuation">, </span><a href="index.html#2006374679%2FFunctions%2F1456861801">V</a><span class="token operator">&gt; </span><a href="index.html#2006374679%2FFunctions%2F1456861801"><span class="token function">compoundList</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#2006374679%2FFunctions%2F1456861801">K</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#2006374679%2FFunctions%2F1456861801">V</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.datafixers.util/Pair///PointingToDeclaration/">Pair</span><span class="token operator">&lt;</span><a href="index.html#2006374679%2FFunctions%2F1456861801">K</a><span class="token punctuation">, </span><a href="index.html#2006374679%2FFunctions%2F1456861801">V</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="517966879%2FFunctions%2F1456861801" anchor-label="decode" id="517966879%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#517966879%2FFunctions%2F1456861801"><span><span>decode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="517966879%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#517966879%2FFunctions%2F1456861801">T</a><span class="token operator">&gt; </span><a href="index.html#517966879%2FFunctions%2F1456861801"><span class="token function">decode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/DynamicOps///PointingToDeclaration/">DynamicOps</span><span class="token operator">&lt;</span><a href="index.html#517966879%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><a href="index.html#517966879%2FFunctions%2F1456861801">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.datafixers.util/Pair///PointingToDeclaration/">Pair</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token punctuation">, </span><a href="index.html#517966879%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-177472592%2FFunctions%2F1456861801" anchor-label="deprecated" id="-177472592%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-177472592%2FFunctions%2F1456861801"><span><span>deprecated</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-177472592%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-177472592%2FFunctions%2F1456861801"><span class="token function">deprecated</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1425988094%2FFunctions%2F1456861801" anchor-label="dispatch" id="1425988094%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1425988094%2FFunctions%2F1456861801"><span><span>dispatch</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1425988094%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#1425988094%2FFunctions%2F1456861801">E</a><span class="token operator">&gt; </span><a href="index.html#1425988094%2FFunctions%2F1456861801"><span class="token function">dispatch</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#1425988094%2FFunctions%2F1456861801">E</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#1425988094%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#1425988094%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="799470042%2FFunctions%2F1456861801" anchor-label="dispatchedMap" id="799470042%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#799470042%2FFunctions%2F1456861801"><span>dispatched</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="799470042%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#799470042%2FFunctions%2F1456861801">K</a><span class="token punctuation">, </span><a href="index.html#799470042%2FFunctions%2F1456861801">V</a><span class="token operator">&gt; </span><a href="index.html#799470042%2FFunctions%2F1456861801"><span class="token function">dispatchedMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#799470042%2FFunctions%2F1456861801">K</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><a href="index.html#799470042%2FFunctions%2F1456861801">K</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#799470042%2FFunctions%2F1456861801">V</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html">Map</a><span class="token operator">&lt;</span><a href="index.html#799470042%2FFunctions%2F1456861801">K</a><span class="token punctuation">, </span><a href="index.html#799470042%2FFunctions%2F1456861801">V</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="423013988%2FFunctions%2F1456861801" anchor-label="dispatchMap" id="423013988%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#423013988%2FFunctions%2F1456861801"><span>dispatch</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="423013988%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#423013988%2FFunctions%2F1456861801">E</a><span class="token operator">&gt; </span><a href="index.html#423013988%2FFunctions%2F1456861801"><span class="token function">dispatchMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#423013988%2FFunctions%2F1456861801">E</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#423013988%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><a href="index.html#423013988%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="135085187%2FFunctions%2F1456861801" anchor-label="dispatchStable" id="135085187%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#135085187%2FFunctions%2F1456861801"><span>dispatch</span><wbr><span><span>Stable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="135085187%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#135085187%2FFunctions%2F1456861801">E</a><span class="token operator">&gt; </span><a href="index.html#135085187%2FFunctions%2F1456861801"><span class="token function">dispatchStable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#135085187%2FFunctions%2F1456861801">E</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#135085187%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#135085187%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="770479079%2FFunctions%2F1456861801" anchor-label="doubleRange" id="770479079%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#770479079%2FFunctions%2F1456861801"><span>double</span><wbr><span><span>Range</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="770479079%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#770479079%2FFunctions%2F1456861801"><span class="token function">doubleRange</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-double/index.html">Double</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Double.html">Double</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1062993557%2FFunctions%2F1456861801" anchor-label="either" id="-1062993557%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1062993557%2FFunctions%2F1456861801"><span><span>either</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1062993557%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1062993557%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#-1062993557%2FFunctions%2F1456861801">S</a><span class="token operator">&gt; </span><a href="index.html#-1062993557%2FFunctions%2F1456861801"><span class="token function">either</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-1062993557%2FFunctions%2F1456861801">F</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-1062993557%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.datafixers.util/Either///PointingToDeclaration/">Either</span><span class="token operator">&lt;</span><a href="index.html#-1062993557%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#-1062993557%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1997663537%2FFunctions%2F1456861801" anchor-label="empty" id="1997663537%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1997663537%2FFunctions%2F1456861801"><span><span>empty</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1997663537%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#1997663537%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#1997663537%2FFunctions%2F1456861801"><span class="token function">empty</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapEncoder///PointingToDeclaration/">MapEncoder</span><span class="token operator">&lt;</span><a href="index.html#1997663537%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-583670707%2FFunctions%2F1456861801" anchor-label="encode" id="-583670707%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-583670707%2FFunctions%2F1456861801"><span><span>encode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-583670707%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-583670707%2FFunctions%2F1456861801">T</a><span class="token operator">&gt; </span><a href="index.html#-583670707%2FFunctions%2F1456861801"><span class="token function">encode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToGenericParameters(0)/">A</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/DynamicOps///PointingToDeclaration/">DynamicOps</span><span class="token operator">&lt;</span><a href="index.html#-583670707%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p2<span class="token operator">: </span><a href="index.html#-583670707%2FFunctions%2F1456861801">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><a href="index.html#-583670707%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1503088242%2FFunctions%2F1456861801" anchor-label="encodeStart" id="-1503088242%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1503088242%2FFunctions%2F1456861801"><span>encode</span><wbr><span><span>Start</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1503088242%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1503088242%2FFunctions%2F1456861801">T</a><span class="token operator">&gt; </span><a href="index.html#-1503088242%2FFunctions%2F1456861801"><span class="token function">encodeStart</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/DynamicOps///PointingToDeclaration/">DynamicOps</span><span class="token operator">&lt;</span><a href="index.html#-1503088242%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToGenericParameters(0)/">A</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><a href="index.html#-1503088242%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-834564268%2FFunctions%2F1456861801" anchor-label="error" id="-834564268%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1052026199%2FFunctions%2F1456861801"><span><span>error</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-834564268%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1052026199%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#-1052026199%2FFunctions%2F1456861801"><span class="token function">error</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToDeclaration/">Decoder</span><span class="token operator">&lt;</span><a href="index.html#-1052026199%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-763947311%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#-763947311%2FFunctions%2F1456861801"><span class="token function">error</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToDeclaration/">Encoder</span><span class="token operator">&lt;</span><a href="index.html#-763947311%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="612472374%2FFunctions%2F1456861801" anchor-label="fieldOf" id="612472374%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2076345870%2FFunctions%2F1456861801"><span>field</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="612472374%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#2076345870%2FFunctions%2F1456861801"><span class="token function">fieldOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#780060704%2FFunctions%2F1456861801"><span class="token function">fieldOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapDecoder///PointingToDeclaration/">MapDecoder</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1549002168%2FFunctions%2F1456861801"><span class="token function">fieldOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapEncoder///PointingToDeclaration/">MapEncoder</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1211751600%2FFunctions%2F1456861801" anchor-label="flatComap" id="-1211751600%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1211751600%2FFunctions%2F1456861801"><span>flat</span><wbr><span><span>Comap</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1211751600%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1211751600%2FFunctions%2F1456861801">B</a><span class="token operator">&gt; </span><a href="index.html#-1211751600%2FFunctions%2F1456861801"><span class="token function">flatComap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#-1211751600%2FFunctions%2F1456861801">B</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToDeclaration/">Encoder</span><span class="token operator">&lt;</span><a href="index.html#-1211751600%2FFunctions%2F1456861801">B</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1834230778%2FFunctions%2F1456861801" anchor-label="flatComapMap" id="-1834230778%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1834230778%2FFunctions%2F1456861801"><span>flat</span><wbr><span>Comap</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1834230778%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1834230778%2FFunctions%2F1456861801">S</a><span class="token operator">&gt; </span><a href="index.html#-1834230778%2FFunctions%2F1456861801"><span class="token function">flatComapMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><a href="index.html#-1834230778%2FFunctions%2F1456861801">S</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#-1834230778%2FFunctions%2F1456861801">S</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-1834230778%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-999300188%2FFunctions%2F1456861801" anchor-label="flatMap" id="-999300188%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-999300188%2FFunctions%2F1456861801"><span>flat</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-999300188%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-999300188%2FFunctions%2F1456861801">B</a><span class="token operator">&gt; </span><a href="index.html#-999300188%2FFunctions%2F1456861801"><span class="token function">flatMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#-999300188%2FFunctions%2F1456861801">B</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToDeclaration/">Decoder</span><span class="token operator">&lt;</span><a href="index.html#-999300188%2FFunctions%2F1456861801">B</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="516521780%2FFunctions%2F1456861801" anchor-label="flatXmap" id="516521780%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#516521780%2FFunctions%2F1456861801"><span>flat</span><wbr><span><span>Xmap</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="516521780%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#516521780%2FFunctions%2F1456861801">S</a><span class="token operator">&gt; </span><a href="index.html#516521780%2FFunctions%2F1456861801"><span class="token function">flatXmap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#516521780%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#516521780%2FFunctions%2F1456861801">S</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#516521780%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1007489800%2FFunctions%2F1456861801" anchor-label="floatRange" id="-1007489800%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1007489800%2FFunctions%2F1456861801"><span>float</span><wbr><span><span>Range</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1007489800%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1007489800%2FFunctions%2F1456861801"><span class="token function">floatRange</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-float/index.html">Float</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Float.html">Float</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1657858977%2FFunctions%2F1456861801" anchor-label="intRange" id="-1657858977%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1657858977%2FFunctions%2F1456861801"><span>int</span><wbr><span><span>Range</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1657858977%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1657858977%2FFunctions%2F1456861801"><span class="token function">intRange</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html">Integer</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1965566620%2FFunctions%2F1456861801" anchor-label="lazyInitialized" id="1965566620%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1965566620%2FFunctions%2F1456861801"><span>lazy</span><wbr><span><span>Initialized</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1965566620%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#1965566620%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#1965566620%2FFunctions%2F1456861801"><span class="token function">lazyInitialized</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html">Supplier</a><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#1965566620%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#1965566620%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="83609252%2FFunctions%2F1456861801" anchor-label="lenientOptionalFieldOf" id="83609252%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1196225015%2FFunctions%2F1456861801"><span>lenient</span><wbr><span>Optional</span><wbr><span>Field</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="83609252%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1196225015%2FFunctions%2F1456861801"><span class="token function">lenientOptionalFieldOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html">Optional</a><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-608838087%2FFunctions%2F1456861801"><span class="token function">lenientOptionalFieldOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1949879138%2FFunctions%2F1456861801" anchor-label="list" id="-1949879138%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1949879138%2FFunctions%2F1456861801"><span><span>list</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1949879138%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1949879138%2FFunctions%2F1456861801">E</a><span class="token operator">&gt; </span><a href="index.html#-1949879138%2FFunctions%2F1456861801"><span class="token function">list</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-1949879138%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html">List</a><span class="token operator">&lt;</span><a href="index.html#-1949879138%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1169188927%2FFunctions%2F1456861801" anchor-label="listOf" id="-1169188927%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1169188927%2FFunctions%2F1456861801"><span>list</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1169188927%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1169188927%2FFunctions%2F1456861801"><span class="token function">listOf</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2102464247%2FFunctions%2F1456861801" anchor-label="map" id="2102464247%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2102464247%2FFunctions%2F1456861801"><span><span>map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2102464247%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#2102464247%2FFunctions%2F1456861801">B</a><span class="token operator">&gt; </span><a href="index.html#2102464247%2FFunctions%2F1456861801"><span class="token function">map</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><a href="index.html#2102464247%2FFunctions%2F1456861801">B</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToDeclaration/">Decoder</span><span class="token operator">&lt;</span><a href="index.html#2102464247%2FFunctions%2F1456861801">B</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-824926775%2FFunctions%2F1456861801" anchor-label="mapEither" id="-824926775%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-824926775%2FFunctions%2F1456861801"><span>map</span><wbr><span><span>Either</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-824926775%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-824926775%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#-824926775%2FFunctions%2F1456861801">S</a><span class="token operator">&gt; </span><a href="index.html#-824926775%2FFunctions%2F1456861801"><span class="token function">mapEither</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><a href="index.html#-824926775%2FFunctions%2F1456861801">F</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><a href="index.html#-824926775%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.datafixers.util/Either///PointingToDeclaration/">Either</span><span class="token operator">&lt;</span><a href="index.html#-824926775%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#-824926775%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="263357406%2FFunctions%2F1456861801" anchor-label="mapPair" id="263357406%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#263357406%2FFunctions%2F1456861801"><span>map</span><wbr><span><span>Pair</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="263357406%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#263357406%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#263357406%2FFunctions%2F1456861801">S</a><span class="token operator">&gt; </span><a href="index.html#263357406%2FFunctions%2F1456861801"><span class="token function">mapPair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><a href="index.html#263357406%2FFunctions%2F1456861801">F</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><a href="index.html#263357406%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.datafixers.util/Pair///PointingToDeclaration/">Pair</span><span class="token operator">&lt;</span><a href="index.html#263357406%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#263357406%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2051799052%2FFunctions%2F1456861801" anchor-label="mapResult" id="2051799052%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2051799052%2FFunctions%2F1456861801"><span>map</span><wbr><span><span>Result</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2051799052%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#2051799052%2FFunctions%2F1456861801"><span class="token function">mapResult</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec.ResultFunction///PointingToDeclaration/">Codec.ResultFunction</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-831976774%2FFunctions%2F1456861801" anchor-label="of" id="-831976774%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#96830234%2FFunctions%2F1456861801"><span><span>of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-831976774%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#96830234%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#96830234%2FFunctions%2F1456861801"><span class="token function">of</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToDeclaration/">Encoder</span><span class="token operator">&lt;</span><a href="index.html#96830234%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToDeclaration/">Decoder</span><span class="token operator">&lt;</span><a href="index.html#96830234%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#96830234%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#430055560%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#430055560%2FFunctions%2F1456861801"><span class="token function">of</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapEncoder///PointingToDeclaration/">MapEncoder</span><span class="token operator">&lt;</span><a href="index.html#430055560%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapDecoder///PointingToDeclaration/">MapDecoder</span><span class="token operator">&lt;</span><a href="index.html#430055560%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><a href="index.html#430055560%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-400673551%2FFunctions%2F1456861801" anchor-label="ofBoxed" id="-400673551%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-400673551%2FFunctions%2F1456861801"><span>of</span><wbr><span><span>Boxed</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-400673551%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-400673551%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#-400673551%2FFunctions%2F1456861801"><span class="token function">ofBoxed</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder.Boxed///PointingToDeclaration/">Decoder.Boxed</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#-400673551%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToDeclaration/">Decoder</span><span class="token operator">&lt;</span><a href="index.html#-400673551%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-224727613%2FFunctions%2F1456861801" anchor-label="ofSimple" id="-224727613%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-224727613%2FFunctions%2F1456861801"><span>of</span><wbr><span><span>Simple</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-224727613%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-224727613%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#-224727613%2FFunctions%2F1456861801"><span class="token function">ofSimple</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder.Simple///PointingToDeclaration/">Decoder.Simple</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#-224727613%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToDeclaration/">Decoder</span><span class="token operator">&lt;</span><a href="index.html#-224727613%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1305041731%2FFunctions%2F1456861801" anchor-label="ofTerminal" id="1305041731%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1305041731%2FFunctions%2F1456861801"><span>of</span><wbr><span><span>Terminal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1305041731%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#1305041731%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#1305041731%2FFunctions%2F1456861801"><span class="token function">ofTerminal</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder.Terminal///PointingToDeclaration/">Decoder.Terminal</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#1305041731%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToDeclaration/">Decoder</span><span class="token operator">&lt;</span><a href="index.html#1305041731%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="532946168%2FFunctions%2F1456861801" anchor-label="optionalField" id="532946168%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#532946168%2FFunctions%2F1456861801"><span>optional</span><wbr><span><span>Field</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="532946168%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#532946168%2FFunctions%2F1456861801">F</a><span class="token operator">&gt; </span><a href="index.html#532946168%2FFunctions%2F1456861801"><span class="token function">optionalField</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#532946168%2FFunctions%2F1456861801">F</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p2<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html">Optional</a><span class="token operator">&lt;</span><a href="index.html#532946168%2FFunctions%2F1456861801">F</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="538273674%2FFunctions%2F1456861801" anchor-label="optionalFieldOf" id="538273674%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1414414706%2FFunctions%2F1456861801"><span>optional</span><wbr><span>Field</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="538273674%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1414414706%2FFunctions%2F1456861801"><span class="token function">optionalFieldOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html">Optional</a><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1172709104%2FFunctions%2F1456861801"><span class="token function">optionalFieldOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1644071583%2FFunctions%2F1456861801" anchor-label="orElse" id="-1644071583%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1644071583%2FFunctions%2F1456861801"><span>or</span><wbr><span><span>Else</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1644071583%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1644071583%2FFunctions%2F1456861801"><span class="token function">orElse</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html">Consumer</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1441296399%2FFunctions%2F1456861801" anchor-label="orElseGet" id="-1441296399%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1441296399%2FFunctions%2F1456861801"><span>or</span><wbr><span>Else</span><wbr><span><span>Get</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1441296399%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1441296399%2FFunctions%2F1456861801"><span class="token function">orElseGet</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html">Consumer</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html">Supplier</a><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-490184768%2FFunctions%2F1456861801" anchor-label="pair" id="-490184768%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-490184768%2FFunctions%2F1456861801"><span><span>pair</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-490184768%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-490184768%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#-490184768%2FFunctions%2F1456861801">S</a><span class="token operator">&gt; </span><a href="index.html#-490184768%2FFunctions%2F1456861801"><span class="token function">pair</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-490184768%2FFunctions%2F1456861801">F</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-490184768%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.datafixers.util/Pair///PointingToDeclaration/">Pair</span><span class="token operator">&lt;</span><a href="index.html#-490184768%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#-490184768%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1549398324%2FFunctions%2F1456861801" anchor-label="parse" id="-1549398324%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1549398324%2FFunctions%2F1456861801"><span><span>parse</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1549398324%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1549398324%2FFunctions%2F1456861801">T</a><span class="token operator">&gt; </span><a href="index.html#-1549398324%2FFunctions%2F1456861801"><span class="token function">parse</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/DynamicOps///PointingToDeclaration/">DynamicOps</span><span class="token operator">&lt;</span><a href="index.html#-1549398324%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><a href="index.html#-1549398324%2FFunctions%2F1456861801">T</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1355503623%2FFunctions%2F1456861801" anchor-label="partialDispatch" id="-1355503623%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1355503623%2FFunctions%2F1456861801"><span>partial</span><wbr><span><span>Dispatch</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1355503623%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1355503623%2FFunctions%2F1456861801">E</a><span class="token operator">&gt; </span><a href="index.html#-1355503623%2FFunctions%2F1456861801"><span class="token function">partialDispatch</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#-1355503623%2FFunctions%2F1456861801">E</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p2<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/MapCodec///PointingToDeclaration/">MapCodec</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#-1355503623%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-1355503623%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2121703522%2FFunctions%2F1456861801" anchor-label="promotePartial" id="-2121703522%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2008557636%2FFunctions%2F1456861801"><span>promote</span><wbr><span><span>Partial</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2121703522%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#2008557636%2FFunctions%2F1456861801"><span class="token function">promotePartial</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html">Consumer</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#583551318%2FFunctions%2F1456861801"><span class="token function">promotePartial</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html">Consumer</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToDeclaration/">Decoder</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-484340134%2FFunctions%2F1456861801" anchor-label="recursive" id="-484340134%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-484340134%2FFunctions%2F1456861801"><span><span>recursive</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-484340134%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-484340134%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#-484340134%2FFunctions%2F1456861801"><span class="token function">recursive</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-484340134%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-484340134%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-484340134%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1936882546%2FFunctions%2F1456861801" anchor-label="simple" id="1936882546%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1936882546%2FFunctions%2F1456861801"><span><span>simple</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1936882546%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#1936882546%2FFunctions%2F1456861801"><span class="token function">simple</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder.Simple///PointingToDeclaration/">Decoder.Simple</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1931287319%2FFunctions%2F1456861801" anchor-label="simpleMap" id="-1931287319%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1931287319%2FFunctions%2F1456861801"><span>simple</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1931287319%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1931287319%2FFunctions%2F1456861801">K</a><span class="token punctuation">, </span><a href="index.html#-1931287319%2FFunctions%2F1456861801">V</a><span class="token operator">&gt; </span><a href="index.html#-1931287319%2FFunctions%2F1456861801"><span class="token function">simpleMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-1931287319%2FFunctions%2F1456861801">K</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-1931287319%2FFunctions%2F1456861801">V</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p2<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Keyable///PointingToDeclaration/">Keyable</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/SimpleMapCodec///PointingToDeclaration/">SimpleMapCodec</span><span class="token operator">&lt;</span><a href="index.html#-1931287319%2FFunctions%2F1456861801">K</a><span class="token punctuation">, </span><a href="index.html#-1931287319%2FFunctions%2F1456861801">V</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1332086883%2FFunctions%2F1456861801" anchor-label="sizeLimitedListOf" id="-1332086883%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1332086883%2FFunctions%2F1456861801"><span>size</span><wbr><span>Limited</span><wbr><span>List</span><wbr><span><span>Of</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1332086883%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1332086883%2FFunctions%2F1456861801"><span class="token function">sizeLimitedListOf</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1799013735%2FFunctions%2F1456861801" anchor-label="sizeLimitedString" id="-1799013735%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1799013735%2FFunctions%2F1456861801"><span>size</span><wbr><span>Limited</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1799013735%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1799013735%2FFunctions%2F1456861801"><span class="token function">sizeLimitedString</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-98734501%2FFunctions%2F1456861801" anchor-label="stable" id="-98734501%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-98734501%2FFunctions%2F1456861801"><span><span>stable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-98734501%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-98734501%2FFunctions%2F1456861801"><span class="token function">stable</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1987455070%2FFunctions%2F1456861801" anchor-label="string" id="-1987455070%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1987455070%2FFunctions%2F1456861801"><span><span>string</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1987455070%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1987455070%2FFunctions%2F1456861801"><span class="token function">string</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-int/index.html">Int</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-33869136%2FFunctions%2F1456861801" anchor-label="stringResolver" id="-33869136%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-33869136%2FFunctions%2F1456861801"><span>string</span><wbr><span><span>Resolver</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-33869136%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-33869136%2FFunctions%2F1456861801">E</a><span class="token operator">&gt; </span><a href="index.html#-33869136%2FFunctions%2F1456861801"><span class="token function">stringResolver</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><a href="index.html#-33869136%2FFunctions%2F1456861801">E</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html">String</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><a href="index.html#-33869136%2FFunctions%2F1456861801">E</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-33869136%2FFunctions%2F1456861801">E</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1232600024%2FFunctions%2F1456861801" anchor-label="terminal" id="-1232600024%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1232600024%2FFunctions%2F1456861801"><span><span>terminal</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1232600024%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1232600024%2FFunctions%2F1456861801"><span class="token function">terminal</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder.Terminal///PointingToDeclaration/">Decoder.Terminal</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2126374022%2FFunctions%2F1456861801" anchor-label="unboundedMap" id="2126374022%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2126374022%2FFunctions%2F1456861801"><span>unbounded</span><wbr><span><span>Map</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2126374022%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#2126374022%2FFunctions%2F1456861801">K</a><span class="token punctuation">, </span><a href="index.html#2126374022%2FFunctions%2F1456861801">V</a><span class="token operator">&gt; </span><a href="index.html#2126374022%2FFunctions%2F1456861801"><span class="token function">unboundedMap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#2126374022%2FFunctions%2F1456861801">K</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#2126374022%2FFunctions%2F1456861801">V</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization.codecs/UnboundedMapCodec///PointingToDeclaration/">UnboundedMapCodec</span><span class="token operator">&lt;</span><a href="index.html#2126374022%2FFunctions%2F1456861801">K</a><span class="token punctuation">, </span><a href="index.html#2126374022%2FFunctions%2F1456861801">V</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1445026690%2FFunctions%2F1456861801" anchor-label="unit" id="-1445026690%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1270324113%2FFunctions%2F1456861801"><span><span>unit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1445026690%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-1270324113%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#-1270324113%2FFunctions%2F1456861801"><span class="token function">unit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="index.html#-1270324113%2FFunctions%2F1456861801">A</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-1270324113%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-799709439%2FFunctions%2F1456861801">A</a><span class="token operator">&gt; </span><a href="index.html#-799709439%2FFunctions%2F1456861801"><span class="token function">unit</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><a href="index.html#-799709439%2FFunctions%2F1456861801">A</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/MapDecoder///PointingToDeclaration/">MapDecoder</span><span class="token operator">&lt;</span><a href="index.html#-799709439%2FFunctions%2F1456861801">A</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1495437726%2FFunctions%2F1456861801" anchor-label="validate" id="-1495437726%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1495437726%2FFunctions%2F1456861801"><span><span>validate</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1495437726%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-1495437726%2FFunctions%2F1456861801"><span class="token function">validate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-771031258%2FFunctions%2F1456861801" anchor-label="withAlternative" id="-771031258%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-771031258%2FFunctions%2F1456861801"><span>with</span><wbr><span><span>Alternative</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-771031258%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-771031258%2FFunctions%2F1456861801">T</a><span class="token operator">&gt; </span><a href="index.html#-771031258%2FFunctions%2F1456861801"><span class="token function">withAlternative</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-771031258%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span class="token keyword">out </span><a href="index.html#-771031258%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-771031258%2FFunctions%2F1456861801">T</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1288136075%2FFunctions%2F1456861801" anchor-label="withLifecycle" id="1288136075%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#24224323%2FFunctions%2F1456861801"><span>with</span><wbr><span><span>Lifecycle</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1288136075%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#24224323%2FFunctions%2F1456861801"><span class="token function">withLifecycle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Lifecycle///PointingToDeclaration/">Lifecycle</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-9613739%2FFunctions%2F1456861801"><span class="token function">withLifecycle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Lifecycle///PointingToDeclaration/">Lifecycle</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToDeclaration/">Decoder</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Decoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#500213885%2FFunctions%2F1456861801"><span class="token function">withLifecycle</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Lifecycle///PointingToDeclaration/">Lifecycle</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToDeclaration/">Encoder</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/Encoder///PointingToGenericParameters(0)/">A</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1176593453%2FFunctions%2F1456861801" anchor-label="xmap" id="1176593453%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#1176593453%2FFunctions%2F1456861801"><span><span>xmap</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1176593453%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#1176593453%2FFunctions%2F1456861801">S</a><span class="token operator">&gt; </span><a href="index.html#1176593453%2FFunctions%2F1456861801"><span class="token function">xmap</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><a href="index.html#1176593453%2FFunctions%2F1456861801">S</a><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span class="token punctuation">(</span><span class="token keyword">in </span><a href="index.html#1176593453%2FFunctions%2F1456861801">S</a><span class="token punctuation">)</span><span class="token operator"> -&gt; </span><span class="token keyword">out </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToGenericParameters(0)/">A</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#1176593453%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-64600685%2FFunctions%2F1456861801" anchor-label="xor" id="-64600685%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-64600685%2FFunctions%2F1456861801"><span><span>xor</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-64600685%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="index.html#-64600685%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#-64600685%2FFunctions%2F1456861801">S</a><span class="token operator">&gt; </span><a href="index.html#-64600685%2FFunctions%2F1456861801"><span class="token function">xor</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">p<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-64600685%2FFunctions%2F1456861801">F</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">p1<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><a href="index.html#-64600685%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/Codec///PointingToDeclaration/">Codec</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.datafixers.util/Either///PointingToDeclaration/">Either</span><span class="token operator">&lt;</span><a href="index.html#-64600685%2FFunctions%2F1456861801">F</a><span class="token punctuation">, </span><a href="index.html#-64600685%2FFunctions%2F1456861801">S</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-327252983%2FFunctions%2F1456861801" anchor-label="yarrp$encodeDummySet" id="-327252983%2FFunctions%2F1456861801" data-filterable-set=":1.21.3-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.3-neoforge/main" data-filterable-set=":1.21.3-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="yarrp$encode-dummy-set.html"><span>yarrp$encode</span><wbr><span>Dummy</span><wbr><span><span>Set</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-327252983%2FFunctions%2F1456861801"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.3-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span class="token operator">&lt;</span><a href="yarrp$encode-dummy-set.html">T</a><span class="token operator">&gt; </span><a href="yarrp$encode-dummy-set.html"><span class="token function">yarrp$encodeDummySet</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">input<span class="token operator">: </span><span data-unresolved-link="net.minecraft.core/HolderSet///PointingToDeclaration/">HolderSet</span><span class="token operator">&lt;</span><a href="index.html">E</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">ops<span class="token operator">: </span><span data-unresolved-link="com.mojang.serialization/DynamicOps///PointingToDeclaration/">DynamicOps</span><span class="token operator">&lt;</span><a href="yarrp$encode-dummy-set.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">prefix<span class="token operator">: </span><a href="yarrp$encode-dummy-set.html">T</a><span class="token punctuation">, </span></span><span class="parameter ">cir<span class="token operator">: </span><span data-unresolved-link="org.spongepowered.asm.mixin.injection.callback/CallbackInfoReturnable///PointingToDeclaration/">CallbackInfoReturnable</span><span class="token operator">&lt;</span><span data-unresolved-link="com.mojang.serialization/DataResult///PointingToDeclaration/">DataResult</span><span class="token operator">&lt;</span><a href="yarrp$encode-dummy-set.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+        <span>© 2025 Copyright</span>
+        <span class="pull-right">
+            <span>Generated by </span>
+            <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                <span>dokka</span>
+            </a>
+        </span>
+    </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

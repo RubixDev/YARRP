@@ -94,7 +94,7 @@
   <div class="breadcrumbs"><a href="../../index.html">1.21.1-neoforge</a><span class="delimiter">/</span><a href="../index.html">de.rubixdev.yarrp.api</a><span class="delimiter">/</span><span class="current">DummyHolderSet</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Dummy</span><wbr><span>Holder</span><wbr><span><span>Set</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.1-neoforge/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">DummyHolderSet</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>tag<span class="token operator">: </span><span data-unresolved-link="net.minecraft.tags/TagKey///PointingToDeclaration/">TagKey</span><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <span data-unresolved-link="net.minecraft.core/HolderSet///PointingToDeclaration/">HolderSet</span><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt; </span></div><p class="paragraph">A dummy implementation of <span data-unresolved-link="net.minecraft.core/HolderSet///PointingToDeclaration/">HolderSet</span> to help with <a href="../-runtime-resource-pack/index.html">RuntimeResourcePack</a> creation.</p><p class="paragraph">In some instances, Minecraft's resource builders expect a <span data-unresolved-link="net.minecraft.core/HolderSet///PointingToDeclaration/">HolderSet</span> for specifying a collection of e.g. items. When specifying this collection simply by a <span data-unresolved-link="net.minecraft.tags/TagKey///PointingToDeclaration/">TagKey</span>, these must usually be obtained from a <span data-unresolved-link="net.minecraft.core/Registry///PointingToDeclaration/">net.minecraft.core.Registry</span>. But when creating a <a href="../-runtime-resource-pack/index.html">RuntimeResourcePack</a>, the only information we need is the actual <span data-unresolved-link="net.minecraft.tags/TagKey///PointingToDeclaration/">TagKey</span> itself, which will be serialized to a string beforehand anyway. This class is used for exactly that. It allows us to create a <span data-unresolved-link="net.minecraft.core/HolderSet///PointingToDeclaration/">HolderSet</span> from a <span data-unresolved-link="net.minecraft.tags/TagKey///PointingToDeclaration/">TagKey</span> without a <span data-unresolved-link="net.minecraft.core/Registry///PointingToDeclaration/">net.minecraft.core.Registry</span>, and it always serializes to just the tag.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.1-neoforge/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">DummyHolderSet</a><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>tag<span class="token operator">: </span><span data-unresolved-link="net.minecraft.tags/TagKey///PointingToDeclaration/">TagKey</span><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span> : <span data-unresolved-link="net.minecraft.core/HolderSet.Named///PointingToDeclaration/">HolderSet.Named</span><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt; </span></div><p class="paragraph">A dummy implementation of <span data-unresolved-link="net.minecraft.core/HolderSet///PointingToDeclaration/">HolderSet</span> to help with <a href="../-runtime-resource-pack/index.html">RuntimeResourcePack</a> creation.</p><p class="paragraph">In some instances, Minecraft's resource builders expect a <span data-unresolved-link="net.minecraft.core/HolderSet///PointingToDeclaration/">HolderSet</span> for specifying a collection of e.g. items. When specifying this collection simply by a <span data-unresolved-link="net.minecraft.tags/TagKey///PointingToDeclaration/">TagKey</span>, these must usually be obtained from a <span data-unresolved-link="net.minecraft.core/Registry///PointingToDeclaration/">net.minecraft.core.Registry</span>. But when creating a <a href="../-runtime-resource-pack/index.html">RuntimeResourcePack</a>, the only information we need is the actual <span data-unresolved-link="net.minecraft.tags/TagKey///PointingToDeclaration/">TagKey</span> itself, which will be serialized to a string beforehand anyway. This class is used for exactly that. It allows us to create a <span data-unresolved-link="net.minecraft.core/HolderSet///PointingToDeclaration/">HolderSet</span> from a <span data-unresolved-link="net.minecraft.tags/TagKey///PointingToDeclaration/">TagKey</span> without a <span data-unresolved-link="net.minecraft.core/Registry///PointingToDeclaration/">net.minecraft.core.Registry</span>, and it always serializes to just the tag.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
@@ -139,17 +139,17 @@
       </div>
       <div data-togglable="FUNCTION">
         <h2 class="">Functions</h2>
-        <div class="table"><a data-name="-875073949%2FFunctions%2F1208715307" anchor-label="addInvalidationListener" id="-875073949%2FFunctions%2F1208715307" data-filterable-set=":1.21.1-neoforge/main"></a>
+        <div class="table"><a data-name="-630175579%2FFunctions%2F1208715307" anchor-label="addInvalidationListener" id="-630175579%2FFunctions%2F1208715307" data-filterable-set=":1.21.1-neoforge/main"></a>
           <div class="table-row" data-filterable-current=":1.21.1-neoforge/main" data-filterable-set=":1.21.1-neoforge/main">
             <div class="main-subrow keyValue ">
               <div class=""><span class="inline-flex">
-                  <div><a href="index.html#-875073949%2FFunctions%2F1208715307"><span>add</span><wbr><span>Invalidation</span><wbr><span><span>Listener</span></span></a></div>
-<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-875073949%2FFunctions%2F1208715307"></span>
+                  <div><a href="index.html#-630175579%2FFunctions%2F1208715307"><span>add</span><wbr><span>Invalidation</span><wbr><span><span>Listener</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-630175579%2FFunctions%2F1208715307"></span>
                     <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.1-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-875073949%2FFunctions%2F1208715307"><span class="token function">addInvalidationListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">runnable<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html">Runnable</a></span></span><span class="token punctuation">)</span></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.1-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-630175579%2FFunctions%2F1208715307"><span class="token function">addInvalidationListener</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">runnable<span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html">Runnable</a></span></span><span class="token punctuation">)</span></div></div></div>
                 </div>
               </div>
             </div>
@@ -229,6 +229,21 @@
               </div>
             </div>
           </div>
+<a data-name="-170511094%2FFunctions%2F1208715307" anchor-label="key" id="-170511094%2FFunctions%2F1208715307" data-filterable-set=":1.21.1-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.1-neoforge/main" data-filterable-set=":1.21.1-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-170511094%2FFunctions%2F1208715307"><span><span>key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-170511094%2FFunctions%2F1208715307"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.1-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><a href="index.html#-170511094%2FFunctions%2F1208715307"><span class="token function">key</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="net.minecraft.tags/TagKey///PointingToDeclaration/">TagKey</span><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
 <a data-name="1381881149%2FFunctions%2F1208715307" anchor-label="serializationType" id="1381881149%2FFunctions%2F1208715307" data-filterable-set=":1.21.1-neoforge/main"></a>
           <div class="table-row" data-filterable-current=":1.21.1-neoforge/main" data-filterable-set=":1.21.1-neoforge/main">
             <div class="main-subrow keyValue ">
@@ -259,6 +274,21 @@
               </div>
             </div>
           </div>
+<a data-name="441483381%2FFunctions%2F1208715307" anchor-label="spliterator" id="441483381%2FFunctions%2F1208715307" data-filterable-set=":1.21.1-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.1-neoforge/main" data-filterable-set=":1.21.1-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#441483381%2FFunctions%2F1208715307"><span><span>spliterator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="441483381%2FFunctions%2F1208715307"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.1-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#441483381%2FFunctions%2F1208715307"><span class="token function">spliterator</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Spliterator.html">Spliterator</a><span class="token operator">&lt;</span><span data-unresolved-link="net.minecraft.core/Holder///PointingToDeclaration/">Holder</span><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
 <a data-name="520695857%2FFunctions%2F1208715307" anchor-label="stream" id="520695857%2FFunctions%2F1208715307" data-filterable-set=":1.21.1-neoforge/main"></a>
           <div class="table-row" data-filterable-current=":1.21.1-neoforge/main" data-filterable-set=":1.21.1-neoforge/main">
             <div class="main-subrow keyValue ">
@@ -270,6 +300,21 @@
               <div>
                 <div class="title">
                   <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.1-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="stream.html"><span class="token function">stream</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html">Stream</a><span class="token operator">&lt;</span><span data-unresolved-link="net.minecraft.core/Holder///PointingToDeclaration/">Holder</span><span class="token operator">&lt;</span><a href="index.html">T</a><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="191785861%2FFunctions%2F1208715307" anchor-label="toString" id="191785861%2FFunctions%2F1208715307" data-filterable-set=":1.21.1-neoforge/main"></a>
+          <div class="table-row" data-filterable-current=":1.21.1-neoforge/main" data-filterable-set=":1.21.1-neoforge/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#191785861%2FFunctions%2F1208715307"><span>to</span><wbr><span><span>String</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="191785861%2FFunctions%2F1208715307"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":1.21.1-neoforge/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#191785861%2FFunctions%2F1208715307"><span class="token function">toString</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
                 </div>
               </div>
             </div>
