@@ -1,10 +1,7 @@
 package de.rubixdev.yarrp.test
 
 import de.rubixdev.yarrp.LOGGER
-import de.rubixdev.yarrp.api.DummyHolderSet
-import de.rubixdev.yarrp.api.PackPosition
-import de.rubixdev.yarrp.api.RuntimeResourcePack
-import de.rubixdev.yarrp.api.YarrpCallbacks
+import de.rubixdev.yarrp.api.*
 import net.minecraft.advancements.critereon.PlayerTrigger
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.recipes.RecipeCategory
@@ -43,7 +40,13 @@ class TestPacks(private val modVersion: String) {
     ).apply {
         addRecipeAndAdvancement(
             "test_recipe_$i".id,
-            ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.DIAMOND)
+            ShapelessRecipeBuilder.shapeless(
+                //#if MC >= 12103
+                DummyHolderGetter(), 
+                //#endif
+                RecipeCategory.MISC,
+                Items.DIAMOND,
+            )
                 .unlockedBy("tick", PlayerTrigger.TriggerInstance.tick())
                 .requires(Items.STICK, i),
         )
@@ -79,7 +82,13 @@ class TestPacks(private val modVersion: String) {
             listOf(TagEntry.tag(ItemTags.FISHES.location)),
         )
 
-        val genericBuilder = ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BLUE_ICE)
+        val genericBuilder = ShapelessRecipeBuilder.shapeless(
+            //#if MC >= 12103
+            DummyHolderGetter(),
+            //#endif
+            RecipeCategory.MISC,
+            Items.BLUE_ICE,
+        )
             .requires(Items.ICE)
             .requires(Items.BLUE_DYE)
             .unlockedBy("tick", PlayerTrigger.TriggerInstance.tick())

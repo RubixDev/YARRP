@@ -37,16 +37,22 @@ preprocess {
     val mc12006_fabric = createNode("1.20.6-fabric", 1_20_06, "official")
     val mc12006_neoforge = createNode("1.20.6-neoforge", 1_20_06, "official")
 
-    val mc12101_common = createNode("1.21.1-common", 1_21_01, "official")
     val mc12101_fabric = createNode("1.21.1-fabric", 1_21_01, "official")
     val mc12101_neoforge = createNode("1.21.1-neoforge", 1_21_01, "official")
+
+    val mc12103_common = createNode("1.21.3-common", 1_21_03, "official")
+    val mc12103_fabric = createNode("1.21.3-fabric", 1_21_03, "official")
+    val mc12103_neoforge = createNode("1.21.3-neoforge", 1_21_03, "official")
 
     // 1.20.6
     mc12101_fabric.link(mc12006_fabric, null)
     mc12101_neoforge.link(mc12006_neoforge, null)
     // 1.21.1
-    mc12101_common.link(mc12101_fabric, null)
-    mc12101_common.link(mc12101_neoforge, file("versions/mappings-common-neoforge.txt"))
+    mc12103_fabric.link(mc12101_fabric, null)
+    mc12103_neoforge.link(mc12101_neoforge, null)
+    // 1.21.3
+    mc12103_common.link(mc12103_fabric, null)
+    mc12103_common.link(mc12103_neoforge, file("versions/mappings-common-neoforge.txt"))
 }
 
 spotless {

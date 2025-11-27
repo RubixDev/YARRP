@@ -20,7 +20,7 @@ import net.minecraft.util.RandomSource
  * that. It allows us to create a [HolderSet] from a [TagKey] without a [net.minecraft.core.Registry],
  * and it always serializes to just the tag.
  */
-class DummyHolderSet<T>(val tag: TagKey<T>) : HolderSet<T> {
+class DummyHolderSet<T>(val tag: TagKey<T>) : HolderSet.Named<T>(null, tag) {
     override fun stream(): Stream<Holder<T>> = Stream.empty()
     override fun size(): Int = 0
     override fun unwrap(): Either<TagKey<T>, List<Holder<T>>> = Either.left(tag)
