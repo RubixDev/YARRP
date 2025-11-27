@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":1.20.6-neoforge/main":[],":1.20.6-fabric/main":[],":1.21.1-fabric/main":[],":1.21.1-neoforge/main":[],":1.21.3-fabric/main":[],":1.21.3-common/main":[],":1.21.3-neoforge/main":[]}'
+sourceset_dependencies = '{":1.21.4-neoforge/main":[],":1.20.6-neoforge/main":[],":1.20.6-fabric/main":[],":1.21.1-fabric/main":[],":1.21.1-neoforge/main":[],":1.21.3-fabric/main":[],":1.21.4-common/main":[],":1.21.4-fabric/main":[],":1.21.3-neoforge/main":[]}'
