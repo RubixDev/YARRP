@@ -15,6 +15,8 @@ import net.minecraft.advancements.Advancement
 import net.minecraft.advancements.AdvancementHolder
 import net.minecraft.advancements.AdvancementRequirements
 import net.minecraft.advancements.AdvancementRewards
+import net.minecraft.advancements.CriteriaTriggers
+import net.minecraft.advancements.critereon.ImpossibleTrigger
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger
 import net.minecraft.core.Registry
 import net.minecraft.data.recipes.RecipeBuilder
@@ -442,17 +444,33 @@ class RuntimeResourcePack @JvmOverloads constructor(
     //#endif
 
     private inline fun createRecipeExporter(
-        crossinline impl: (recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?) -> Unit,
+        crossinline impl: (recipeId: ResourceLocation?, recipe: Recipe<*>?, advancement: AdvancementHolder?) -> Unit,
     ) = object : RecipeOutput {
-        override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?) =
-            impl(recipeId, recipe, advancement)
+        //#if MC >= 12103
+        override fun accept(recipeId: ResourceKey<Recipe<*>>, recipe: Recipe<*>, advancement: AdvancementHolder?) =
+            impl(recipeId.location(), recipe, advancement)
+
+        override fun includeRootAdvancement() {
+            val rootAdvancement = Advancement.Builder.recipeAdvancement()
+                .addCriterion("impossible", CriteriaTriggers.IMPOSSIBLE.createCriterion(ImpossibleTrigger.TriggerInstance()))
+                .build(RecipeBuilder.ROOT_RECIPE_ADVANCEMENT)
+            impl(null, null, rootAdvancement)
+        }
+        //#else
+        //$$ override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?) =
+        //$$     impl(recipeId, recipe, advancement)
+        //#endif
 
         @Suppress("removal", "DEPRECATION") // vanilla does the same
         override fun advancement(): Advancement.Builder =
             Advancement.Builder.recipeAdvancement().parent(RecipeBuilder.ROOT_RECIPE_ADVANCEMENT)
 
         //#if NEOFORGE
+        //#if MC >= 12103
+        //$$ override fun accept(recipeId: ResourceKey<Recipe<*>>, recipe: Recipe<*>, advancement: AdvancementHolder?, vararg conditions: ICondition) =
+        //#else
         //$$ override fun accept(recipeId: ResourceLocation, recipe: Recipe<*>, advancement: AdvancementHolder?, vararg conditions: ICondition) =
+        //#endif
         //$$     accept(recipeId, recipe, advancement)
         //#endif
     }
@@ -462,7 +480,7 @@ class RuntimeResourcePack @JvmOverloads constructor(
      */
     val recipeExporter: RecipeOutput by lazy {
         createRecipeExporter { recipeId, recipe, advancement ->
-            addRecipe(recipeId, recipe)
+            if (recipeId != null && recipe != null) addRecipe(recipeId, recipe)
             if (advancement != null) addAdvancement(advancement)
         }
     }
@@ -472,7 +490,7 @@ class RuntimeResourcePack @JvmOverloads constructor(
      */
     val recipeExporterOnlyRecipe: RecipeOutput by lazy {
         createRecipeExporter { recipeId, recipe, _ ->
-            addRecipe(recipeId, recipe)
+            if (recipeId != null && recipe != null) addRecipe(recipeId, recipe)
         }
     }
 
@@ -491,8 +509,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipeId] the recipe identifier
      * @param[builder] the recipe builder
      */
+    //#if MC >= 12103
     fun addRecipeAndAdvancement(recipeId: ResourceLocation, builder: RecipeBuilder) =
-        builder.save(recipeExporter, recipeId)
+        builder.save(recipeExporter, ResourceKey.create(Registries.RECIPE, recipeId))
+    //#else
+    //$$ fun addRecipeAndAdvancement(recipeId: ResourceLocation, builder: RecipeBuilder) =
+    //$$     builder.save(recipeExporter, recipeId)
+    //#endif
 
     /**
      * Add both a recipe and an advancement using the given recipe builder.
@@ -500,8 +523,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipeId] the recipe identifier
      * @param[builder] the recipe builder
      */
+    //#if MC >= 12103
     fun addRecipeAndAdvancement(recipeId: ResourceLocation, builder: SmithingTransformRecipeBuilder) =
-        builder.save(recipeExporter, recipeId)
+        builder.save(recipeExporter, ResourceKey.create(Registries.RECIPE, recipeId))
+    //#else
+    //$$ fun addRecipeAndAdvancement(recipeId: ResourceLocation, builder: SmithingTransformRecipeBuilder) =
+    //$$     builder.save(recipeExporter, recipeId)
+    //#endif
 
     /**
      * Add both a recipe and an advancement using the given recipe builder.
@@ -509,8 +537,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipeId] the recipe identifier
      * @param[builder] the recipe builder
      */
+    //#if MC >= 12103
     fun addRecipeAndAdvancement(recipeId: ResourceLocation, builder: SmithingTrimRecipeBuilder) =
-        builder.save(recipeExporter, recipeId)
+        builder.save(recipeExporter, ResourceKey.create(Registries.RECIPE, recipeId))
+    //#else
+    //$$ fun addRecipeAndAdvancement(recipeId: ResourceLocation, builder: SmithingTrimRecipeBuilder) =
+    //$$     builder.save(recipeExporter, recipeId)
+    //#endif
 
     /**
      * Add both a recipe and an advancement using the given recipe builder.
@@ -518,8 +551,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipeId] the recipe identifier
      * @param[builder] the recipe builder
      */
+    //#if MC >= 12103
     fun addRecipeAndAdvancement(recipeId: ResourceLocation, builder: SpecialRecipeBuilder) =
-        builder.save(recipeExporter, recipeId)
+        builder.save(recipeExporter, ResourceKey.create(Registries.RECIPE, recipeId))
+    //#else
+    //$$ fun addRecipeAndAdvancement(recipeId: ResourceLocation, builder: SpecialRecipeBuilder) =
+    //$$     builder.save(recipeExporter, recipeId)
+    //#endif
 
     //#if MC >= 12101
     /**
@@ -529,8 +567,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[builder] the recipe builder
      * @return a [ResourceKey] pointing to the created recipe
      */
+    //#if MC >= 12103
     fun addRecipe(recipeId: ResourceLocation, builder: RecipeBuilder): ResourceKey<Recipe<*>> =
-        builder.save(recipeExporterOnlyRecipe, recipeId).let { ResourceKey.create(Registries.RECIPE, recipeId) }
+        ResourceKey.create(Registries.RECIPE, recipeId).also { builder.save(recipeExporterOnlyRecipe, it) }
+    //#else
+    //$$ fun addRecipe(recipeId: ResourceLocation, builder: RecipeBuilder): ResourceKey<Recipe<*>> =
+    //$$     builder.save(recipeExporterOnlyRecipe, recipeId).let { ResourceKey.create(Registries.RECIPE, recipeId) }
+    //#endif
 
     /**
      * Add only the recipe from a recipe builder.
@@ -539,8 +582,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[builder] the recipe builder
      * @return a [ResourceKey] pointing to the created recipe
      */
+    //#if MC >= 12103
     fun addRecipe(recipeId: ResourceLocation, builder: SmithingTransformRecipeBuilder): ResourceKey<Recipe<*>> =
-        builder.save(recipeExporterOnlyRecipe, recipeId).let { ResourceKey.create(Registries.RECIPE, recipeId) }
+        ResourceKey.create(Registries.RECIPE, recipeId).also { builder.save(recipeExporterOnlyRecipe, it) }
+    //#else
+    //$$ fun addRecipe(recipeId: ResourceLocation, builder: SmithingTransformRecipeBuilder): ResourceKey<Recipe<*>> =
+    //$$     builder.save(recipeExporterOnlyRecipe, recipeId).let { ResourceKey.create(Registries.RECIPE, recipeId) }
+    //#endif
 
     /**
      * Add only the recipe from a recipe builder.
@@ -549,8 +597,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[builder] the recipe builder
      * @return a [ResourceKey] pointing to the created recipe
      */
+    //#if MC >= 12103
     fun addRecipe(recipeId: ResourceLocation, builder: SmithingTrimRecipeBuilder): ResourceKey<Recipe<*>> =
-        builder.save(recipeExporterOnlyRecipe, recipeId).let { ResourceKey.create(Registries.RECIPE, recipeId) }
+        ResourceKey.create(Registries.RECIPE, recipeId).also { builder.save(recipeExporterOnlyRecipe, it) }
+    //#else
+    //$$ fun addRecipe(recipeId: ResourceLocation, builder: SmithingTrimRecipeBuilder): ResourceKey<Recipe<*>> =
+    //$$     builder.save(recipeExporterOnlyRecipe, recipeId).let { ResourceKey.create(Registries.RECIPE, recipeId) }
+    //#endif
 
     /**
      * Add only the recipe from a recipe builder.
@@ -559,8 +612,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[builder] the recipe builder
      * @return a [ResourceKey] pointing to the created recipe
      */
+    //#if MC >= 12103
     fun addRecipe(recipeId: ResourceLocation, builder: SpecialRecipeBuilder): ResourceKey<Recipe<*>> =
-        builder.save(recipeExporterOnlyRecipe, recipeId).let { ResourceKey.create(Registries.RECIPE, recipeId) }
+        ResourceKey.create(Registries.RECIPE, recipeId).also { builder.save(recipeExporterOnlyRecipe, it) }
+    //#else
+    //$$ fun addRecipe(recipeId: ResourceLocation, builder: SpecialRecipeBuilder): ResourceKey<Recipe<*>> =
+    //$$     builder.save(recipeExporterOnlyRecipe, recipeId).let { ResourceKey.create(Registries.RECIPE, recipeId) }
+    //#endif
     //#else
     //$$ /**
     //$$  * Add only the recipe from a recipe builder.
@@ -609,8 +667,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipeId] the recipe identifier
      * @param[builder] the recipe builder
      */
+    //#if MC >= 12103
     fun addAdvancement(recipeId: ResourceLocation, builder: RecipeBuilder) =
-        builder.save(recipeExporterOnlyAdvancement, recipeId)
+        builder.save(recipeExporterOnlyAdvancement, ResourceKey.create(Registries.RECIPE, recipeId))
+    //#else
+    //$$ fun addAdvancement(recipeId: ResourceLocation, builder: RecipeBuilder) =
+    //$$     builder.save(recipeExporterOnlyAdvancement, recipeId)
+    //#endif
 
     /**
      * Add only the advancement from a recipe builder.
@@ -618,8 +681,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipeId] the recipe identifier
      * @param[builder] the recipe builder
      */
+    //#if MC >= 12103
     fun addAdvancement(recipeId: ResourceLocation, builder: SmithingTransformRecipeBuilder) =
-        builder.save(recipeExporterOnlyAdvancement, recipeId)
+        builder.save(recipeExporterOnlyAdvancement, ResourceKey.create(Registries.RECIPE, recipeId))
+    //#else
+    //$$ fun addAdvancement(recipeId: ResourceLocation, builder: SmithingTransformRecipeBuilder) =
+    //$$     builder.save(recipeExporterOnlyAdvancement, recipeId)
+    //#endif
 
     /**
      * Add only the advancement from a recipe builder.
@@ -627,8 +695,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipeId] the recipe identifier
      * @param[builder] the recipe builder
      */
+    //#if MC >= 12103
     fun addAdvancement(recipeId: ResourceLocation, builder: SmithingTrimRecipeBuilder) =
-        builder.save(recipeExporterOnlyAdvancement, recipeId)
+        builder.save(recipeExporterOnlyAdvancement, ResourceKey.create(Registries.RECIPE, recipeId))
+    //#else
+    //$$ fun addAdvancement(recipeId: ResourceLocation, builder: SmithingTrimRecipeBuilder) =
+    //$$     builder.save(recipeExporterOnlyAdvancement, recipeId)
+    //#endif
 
     /**
      * Add only the advancement from a recipe builder.
@@ -636,8 +709,13 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipeId] the recipe identifier
      * @param[builder] the recipe builder
      */
+    //#if MC >= 12103
     fun addAdvancement(recipeId: ResourceLocation, builder: SpecialRecipeBuilder) =
-        builder.save(recipeExporterOnlyAdvancement, recipeId)
+        builder.save(recipeExporterOnlyAdvancement, ResourceKey.create(Registries.RECIPE, recipeId))
+    //#else
+    //$$ fun addAdvancement(recipeId: ResourceLocation, builder: SpecialRecipeBuilder) =
+    //$$     builder.save(recipeExporterOnlyAdvancement, recipeId)
+    //#endif
 
     /**
      * Create an advancement builder for unlocking the given recipe.
@@ -645,8 +723,16 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipe] the recipe to unlock
      * @return the created advancement builder
      */
-    fun advancementBuilderForRecipe(recipe: ResourceKey<out Recipe<*>>): Advancement.Builder =
-        advancementBuilderForRecipe(recipe.location())
+    //#if MC >= 12103
+    fun advancementBuilderForRecipe(recipe: ResourceKey<Recipe<*>>): Advancement.Builder =
+        recipeExporterOnlyAdvancement.advancement()
+            .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipe))
+            .rewards(AdvancementRewards.Builder.recipe(recipe))
+            .requirements(AdvancementRequirements.Strategy.OR)
+    //#else
+    //$$ fun advancementBuilderForRecipe(recipe: ResourceKey<out Recipe<*>>): Advancement.Builder =
+    //$$     advancementBuilderForRecipe(recipe.location())
+    //#endif
 
     /**
      * Create an advancement builder for unlocking the given recipe.
@@ -654,9 +740,15 @@ class RuntimeResourcePack @JvmOverloads constructor(
      * @param[recipeId] the recipe to unlock
      * @return the created advancement builder
      */
+    //#if MC >= 12103
+    @Suppress("unused")
     fun advancementBuilderForRecipe(recipeId: ResourceLocation): Advancement.Builder =
-        recipeExporterOnlyAdvancement.advancement()
-            .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
-            .rewards(AdvancementRewards.Builder.recipe(recipeId))
-            .requirements(AdvancementRequirements.Strategy.OR)
+        advancementBuilderForRecipe(ResourceKey.create(Registries.RECIPE, recipeId))
+    //#else
+    //$$ fun advancementBuilderForRecipe(recipeId: ResourceLocation): Advancement.Builder =
+    //$$     recipeExporterOnlyAdvancement.advancement()
+    //$$         .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
+    //$$         .rewards(AdvancementRewards.Builder.recipe(recipeId))
+    //$$         .requirements(AdvancementRequirements.Strategy.OR)
+    //#endif
 }

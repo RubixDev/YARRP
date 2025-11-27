@@ -229,7 +229,7 @@ tasks.named<ProcessResources>("processResources") {
     )
     inputs.properties(replaceProperties)
 
-    filesMatching(listOf("fabric.mod.json", "META-INF/neoforge.mods.toml", "pack.mcmeta")) {
+    filesMatching(listOf("fabric.mod.json", "META-INF/neoforge.mods.toml", "pack.mcmeta", "architectury.common.json")) {
         expand(replaceProperties + mapOf("project" to project))
     }
 

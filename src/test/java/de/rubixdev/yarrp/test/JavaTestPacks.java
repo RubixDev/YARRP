@@ -1,10 +1,7 @@
 package de.rubixdev.yarrp.test;
 
 import de.rubixdev.yarrp.ModConstants;
-import de.rubixdev.yarrp.api.IntrinsicHolderTagBuilder;
-import de.rubixdev.yarrp.api.PackPosition;
-import de.rubixdev.yarrp.api.RuntimeResourcePack;
-import de.rubixdev.yarrp.api.YarrpCallbacks;
+import de.rubixdev.yarrp.api.*;
 import net.minecraft.advancements.critereon.PlayerTrigger;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
@@ -40,14 +37,18 @@ public class JavaTestPacks {
         );
         pack.addTag(BlockTags.GUARDED_BY_PIGLINS, IntrinsicHolderTagBuilder.block().add(Blocks.NETHERRACK));
 
-        pack.addRecipeAndAdvancement(
-            UtilsKt.getId("trust_me_bro"),
-            ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.DIRT)
-                .unlockedBy("tick", PlayerTrigger.TriggerInstance.tick())
-                .pattern("###")
-                .pattern("###")
-                .pattern("###")
-                .define('#', Items.NETHERITE_BLOCK)
+        pack.addRecipeAndAdvancement(UtilsKt.getId("trust_me_bro"), ShapedRecipeBuilder.shaped(
+            //#if MC >= 12103
+            new DummyHolderGetter<>(),
+            //#endif
+            RecipeCategory.BUILDING_BLOCKS,
+            Items.DIRT
+        )
+            .unlockedBy("tick", PlayerTrigger.TriggerInstance.tick())
+            .pattern("###")
+            .pattern("###")
+            .pattern("###")
+            .define('#', ItemTags.BEACON_PAYMENT_ITEMS)
         );
     }
 }
