@@ -23,6 +23,7 @@ import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.ArmorDyeRecipe
 import net.minecraft.world.item.crafting.Ingredient
 import net.minecraft.world.item.enchantment.Enchantment
+import net.minecraft.world.item.equipment.trim.TrimPatterns
 import net.minecraft.world.level.block.Blocks
 import net.minecraft.world.level.material.Fluids
 
@@ -104,6 +105,9 @@ class TestPacks(private val modVersion: String) {
                 Ingredient.of(Items.STICK),
                 Ingredient.of(Items.STICK),
                 Ingredient.of(Items.STICK),
+                //#if MC >= 12105
+                DummyHolder(TrimPatterns.EYE),
+                //#endif
                 RecipeCategory.MISC,
             ).unlocks("tick", PlayerTrigger.TriggerInstance.tick())
         val specialBuilder = SpecialRecipeBuilder.special(::ArmorDyeRecipe)

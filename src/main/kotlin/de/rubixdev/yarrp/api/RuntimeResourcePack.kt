@@ -5,6 +5,7 @@ import com.mojang.serialization.Codec
 import com.mojang.serialization.JsonOps
 import de.rubixdev.yarrp.LOGGER
 import de.rubixdev.yarrp.impl.DirectoryEntry
+import de.rubixdev.yarrp.impl.DummyRegistryOps
 import de.rubixdev.yarrp.impl.PackEntry
 import de.rubixdev.yarrp.impl.Resource
 import de.rubixdev.yarrp.impl.ResourceEntry
@@ -213,7 +214,7 @@ class RuntimeResourcePack @JvmOverloads constructor(
      */
     fun <T> addResource(type: PackType, path: List<String>, codec: Codec<T>, id: ResourceLocation, value: T) {
         val path = listOf(id.namespace) + path + id.splitPath.withJsonExt
-        val json = GSON.toJson(codec.encodeStart(JsonOps.INSTANCE, value).getOrThrow())
+        val json = GSON.toJson(codec.encodeStart(DummyRegistryOps(JsonOps.INSTANCE), value).getOrThrow())
         LOGGER.debug("adding resource to {}:\n{}\n{}", info.id, path.joinToString("/"), json)
         addResource(type, path, json)
     }
@@ -354,7 +355,7 @@ class RuntimeResourcePack @JvmOverloads constructor(
             addAll(tagKey.registry.tagPath)
             addAll(tagKey.location.splitPath.withJsonExt)
         }
-        val json = GSON.toJson(TagFile.CODEC.encodeStart(JsonOps.INSTANCE, tagFile).getOrThrow())
+        val json = GSON.toJson(TagFile.CODEC.encodeStart(DummyRegistryOps(JsonOps.INSTANCE), tagFile).getOrThrow())
         LOGGER.debug("adding tag:\n{}\n{}", path.joinToString("/"), json)
         addResource(PackType.SERVER_DATA, path, json)
     }
