@@ -1,15 +1,15 @@
 package de.rubixdev.yarrp.api
 
 import com.mojang.datafixers.util.Either
+import java.util.Optional
+import java.util.function.Predicate
+import java.util.stream.Stream
+import kotlin.jvm.optionals.getOrNull
 import net.minecraft.core.Holder
 import net.minecraft.core.HolderOwner
 import net.minecraft.resources.ResourceKey
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.tags.TagKey
-import java.util.Optional
-import java.util.function.Predicate
-import java.util.stream.Stream
-import kotlin.jvm.optionals.getOrNull
 
 /**
  * A dummy implementation of [Holder] to help with [RuntimeResourcePack] creation.
