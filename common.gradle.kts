@@ -161,7 +161,9 @@ dependencies {
         }
 
         Loader.FABRIC -> {
-            modLocalRuntime("maven.modrinth:early-loading-screen:${props.early_loading_screen_version}")
+            if (props.early_loading_screen_version.isNotBlank()) {
+                modLocalRuntime("maven.modrinth:early-loading-screen:${props.early_loading_screen_version}")
+            }
 
             modImplementation("net.fabricmc:fabric-loader:${props.fabric_loader_version}")
             modCompileOnly("net.fabricmc.fabric-api:fabric-api:${props.fabric_api_version}")
